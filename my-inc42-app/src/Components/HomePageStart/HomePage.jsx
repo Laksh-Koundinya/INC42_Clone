@@ -1,23 +1,23 @@
-import React, {useEffect} from 'react'
-import {useDispatch, useSelector} from "react-redux";
-import { getNewsData } from '../../Redux/actionCreators'
+// import React, {useEffect} from 'react'
+// import {useDispatch, useSelector} from "react-redux";
+// import { getNewsData } from '../../Redux/actionCreators'
 
-export const HomePage = () => {
-    const newsData = useSelector( (state) => state.data )
+// export const HomePage = () => {
+//     const newsData = useSelector( (state) => state.data )
 
-    const dispatch = useDispatch()
+//     const dispatch = useDispatch()
 
 
-    useEffect(() => {
+//     useEffect(() => {
         
-        dispatch(getNewsData())
-    }, [])
+//         dispatch(getNewsData())
+//     }, [])
 
 
-    console.log(newsData, "DTA")
-    return (
-        <div>
+//     console.log(newsData, "DTA")
+//     return (
+//         <div>
             
-        </div>
-    )
-}
+//         </div>
+//     )
+// }

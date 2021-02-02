@@ -1,12 +1,10 @@
-
 import './App.css';
-import { HomePage } from './Components/HomePageStart/HomePage';
-
+import LoginModal from "./Components/Login_Signup/LoginModal"
 
 function App() {
   return (
     <div className="App">
-      <HomePage/>
+      <LoginModal />
     </div>
   );
 }
