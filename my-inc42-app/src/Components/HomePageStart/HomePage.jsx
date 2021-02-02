@@ -6,6 +6,7 @@ import { BigCard } from "./Cards/BigCard.jsx";
 import { NormalCard } from "./Cards/NormalCard";
 import { SmallCard } from "./Cards/SmallCard";
 import styles from "./HomePage.module.css";
+import { Tag } from "./Tag";
 
 export const HomePage = () => {
     const newsData = useSelector((state) => state.data.newsData);
@@ -51,7 +52,11 @@ export const HomePage = () => {
                     </div>
                 </div>
                 <div className = {styles.tags}>
-                    
+                    {
+                        ["Education","Technology","Health"]?.map((item) => {
+                            return <Tag label = {item}/>
+                        })
+                    }
                 </div>
             </div>
         </>
