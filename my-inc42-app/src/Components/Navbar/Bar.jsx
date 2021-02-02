@@ -1,9 +1,9 @@
 import React from "react";
 import Paper from "@material-ui/core/Paper";
 import { makeStyles } from "@material-ui/core/styles";
-import SearchIcon from "@material-ui/icons/Search";
 import Typography from "@material-ui/core/Typography";
 import HoverMenu from "./HoverMenu";
+import SearchModal from "./SearchModal";
 
 const popoverData = [
   {
@@ -83,32 +83,20 @@ const Bar = () => {
   return (
     <>
       <Paper className={classes.bar} elevation={3}>
-        <SearchIcon />
-        <HoverMenu
-          label="INC42 PLUS"
-          data={popoverData[0].data1}
-        />
-        <HoverMenu
-          label="FOR THE MAKERS"
-          data={popoverData[1].data2}
-        />
+        <SearchModal />
+        <HoverMenu label="INC42 PLUS" data={popoverData[0].data1} />
+        <HoverMenu label="FOR THE MAKERS" data={popoverData[1].data2} />
         <Typography variant="button" display="block">
           NEWS
         </Typography>
         <Typography variant="button" display="block">
           FEATURES
         </Typography>
-        <HoverMenu
-          label="INFOCUS"
-          data={popoverData[2].data3}
-        />
+        <HoverMenu label="INFOCUS" data={popoverData[2].data3} />
         <Typography variant="button" display="block">
           ANALYSIS
         </Typography>
-        <HoverMenu
-          label="VIDEOS"
-          data={popoverData[3].data4}
-        />
+        <HoverMenu label="VIDEOS" data={popoverData[3].data4} />
         <HoverMenu label="MORE" data={popoverData[4].data5} />
       </Paper>
     </>
