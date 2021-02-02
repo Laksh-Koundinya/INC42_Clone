@@ -1,10 +1,21 @@
+import React ,{useEffect} from "react"
+import {useDispatch} from "react-redux"
+import { HomePage } from './Components/HomePageStart/HomePage';
+import { getNewsData } from './Redux/actionCreators';
 
-import './App.css';
 
 function App() {
+
+  const dispatch = useDispatch()
+
+  useEffect(() => {
+        
+    dispatch( getNewsData() )
+  }, [])
+
   return (
-    <div className="App">
-     Hello
+    <div >
+      <HomePage/>
     </div>
   );
 }
