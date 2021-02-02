@@ -1,0 +1,28 @@
+.small{
+    display: flex;
+    /* align-items: center; */
+    /* justify-content: center; */
+}
+
+.small div{
+    margin-right:2px
+}
+.author{
+    font-weight: bold;
+    text-transform:Capitalize
+}
+
+.cardBottom{
+    display: flex;
+    align-items:center;
+    margin-top:25px
+}
+
+.subTitle{
+    font-weight: 900
+}
+.subTitle:hover{
+    color: crimson;
+    
+    
+}

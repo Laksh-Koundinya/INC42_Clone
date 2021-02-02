@@ -2,7 +2,7 @@ import { GET_NEWS_FAILURE, GET_NEWS_REQUEST, GET_NEWS_SUCCESS } from "./actionTy
 
 
 const initState = {
-    newsData:[],
+    newsData:[  ],
     error:false,
     loading:false,
     message:""

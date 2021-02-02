@@ -26,7 +26,7 @@ export const getNewsData = () =>(dispatch) =>{
 
     const config ={
         method:"get",
-        url:"https://mock-server-anusha.herokuapp.com/articles",
+        url:"https://mock-server-anusha.herokuapp.com/news",
     
     }
 
