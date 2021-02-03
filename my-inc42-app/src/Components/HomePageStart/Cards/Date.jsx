@@ -2,13 +2,13 @@ import React from 'react'
 import styles from "./Card.module.css"
 
 
-export const Date = () => {
+export const Date = ({published, timeTakenToRead}) => {
     return (
         <>
             <div className = {styles.small}>
-              <div>September 14, 2016</div>
+              <div>{published}</div>
               <div>.</div>
-              <div>2 min read</div>
+              <div>{timeTakenToRead} read</div>
             </div>
         </>
     )

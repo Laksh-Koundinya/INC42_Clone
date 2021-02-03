@@ -40,10 +40,12 @@ const useStyles = makeStyles((theme) => ({
     hiddenText: {
         maxHeight: 24,
         overflow: "hidden",
+        textOverflow: "ellipsis",
+        whiteSpace: "nowrap"
     },
 }));
 
-function BigCard({ data }) {
+function BigCard( { data , goToDisplayNews } ) {
     const classes = useStyles();
     //   const theme = useTheme();
     console.log(data, "Dataaa");
@@ -68,6 +70,7 @@ function BigCard({ data }) {
                         variant="subtitle1"
                         variant="h5"
                         className={styles.subTitle}
+                        onClick = { () => goToDisplayNews(data.id, data)}
                     >
                         {data.title}
                     </Typography>
@@ -94,7 +97,7 @@ function BigCard({ data }) {
                     <div>
                         <span className={styles.author}>{data.author}</span>
                         {/* three elements with full stop */}
-                        <Date />
+                        <Date published = {data.published_at} timeTakenToRead = {data.time_taken_read} />
                     </div>
                 </div>
             </div>
