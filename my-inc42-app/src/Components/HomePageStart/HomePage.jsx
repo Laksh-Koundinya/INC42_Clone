@@ -1,3 +1,4 @@
+
 import React, { useEffect } from "react";
 import { useDispatch, useSelector } from "react-redux";
 import {useHistory} from "react-router-dom"
@@ -11,6 +12,7 @@ import { Tag } from "./Tag";
 
 import { Typography } from "@material-ui/core";
 import styles from "./HomePage.module.css";
+
 
 export const HomePage = () => {
     const newsData = useSelector((state) => state.data.newsData);
