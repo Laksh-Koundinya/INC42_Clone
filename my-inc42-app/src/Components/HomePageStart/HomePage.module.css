@@ -43,12 +43,12 @@
 .tagButton {
     border-radius:50px;
     color:white;
-    background-color :#e33326;
+    background-color : #f42534;
      border: none;
      
 }
 .tagButton:hover{
-    background-color: "black";
+    background-color: black;
 }
 
 .tags > button {

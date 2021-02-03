@@ -2,7 +2,7 @@ import { FILTER_NEWS_FAILURE, FILTER_NEWS_REQUEST, FILTER_NEWS_SUCCESS, GET_NEWS
 
 
 const initState = {
-    newsData:[  ],
+    newsData:[],
     error:false,
     loading:false,
     message:""

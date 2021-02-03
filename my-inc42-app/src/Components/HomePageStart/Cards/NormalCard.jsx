@@ -4,9 +4,7 @@ import {
     Card,
     CardContent,
     CardMedia,
-    Typography,
-    Avatar,
-    CardHeader,
+    Typography
 } from "@material-ui/core";
 import styles from "./Card.module.css";
 import { Date } from "./Date";
@@ -35,7 +33,7 @@ const useStyles = makeStyles((theme) => ({
         textTransform: "Capitalize",
     },
 }));
-export const NormalCard = ({ data }) => {
+export const NormalCard = ({ data,goToDisplayNews }) => {
     const classes = useStyles();
 
     return (
@@ -58,6 +56,7 @@ export const NormalCard = ({ data }) => {
                     variant="h5"
                     component="h6"
                     className={styles.subTitle}
+                    onClick = { () => goToDisplayNews(data.id, data)}
                 >
                     {data.title}
                 </Typography>
@@ -68,7 +67,7 @@ export const NormalCard = ({ data }) => {
                     </Typography>
                     <Typography className={classes.bottomRight}></Typography>
                     <Typography component="div">
-                        <Date />
+                        <Date published = {data.published_at} timeTakenToRead = {data.time_taken_read} />
                     </Typography>
                 </Typography>
             </CardContent>
