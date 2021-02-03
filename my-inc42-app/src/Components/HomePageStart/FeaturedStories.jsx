@@ -1,5 +1,7 @@
 import React from "react";
 import CustomArrows from "./HomeCarousel";
+import { NewsRound } from "./NewsRound";
+import SubscriptionBar from "./SubscriptionBar";
 
 
 const FeaturedStories=()=>{
@@ -11,6 +13,11 @@ const FeaturedStories=()=>{
         <div style = {{marginTop:"-200px"}}>
             <CustomArrows />
         </div>
+       <div style = {{height:"40px"}}></div>
+        <SubscriptionBar />
+        <div style = {{height:"40px"}}></div>
+        <NewsRound />
+
         </>
     )
 }
