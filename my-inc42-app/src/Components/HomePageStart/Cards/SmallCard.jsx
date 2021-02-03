@@ -34,7 +34,7 @@ const useStyles = makeStyles((theme) => ({
         color: "black"
     }
 }));
-export const SmallCard = ({data}) => {
+export const SmallCard = ({data, goToDisplayNews}) => {
     const classes = useStyles()
     return (
         <>
@@ -51,6 +51,7 @@ export const SmallCard = ({data}) => {
                     variant="subtitle2"
                     component="h6"
                     className={styles.subTitle}
+                    onClick = { () => goToDisplayNews(data.id, data)}
                 >
                     {data.title}
                 </Typography>
@@ -61,7 +62,7 @@ export const SmallCard = ({data}) => {
                     </Typography>
                    <Typography className = {classes.line} color = "textSecondary">|</Typography>
                     <Typography component="div" color = "textSecondary">
-                        <Date />
+                        <Date published = {data.published_at} timeTakenToRead = {data.time_taken_read} />
                     </Typography>
                 </Typography>
             </CardContent>

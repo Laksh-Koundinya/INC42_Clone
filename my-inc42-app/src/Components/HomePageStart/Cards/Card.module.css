@@ -15,7 +15,7 @@
 .cardBottom{
     display: flex;
     align-items:center;
-    margin-top:25px
+    /* border:1px solid blue */
 }
 
 .subTitle{
@@ -25,4 +25,15 @@
     color: crimson;
     
     
+}
+
+.contentPointers  p::before{
+    color: red;
+    content: "•";
+    font-size: 1.125rem;
+    display: inline-block;
+}
+
+.contentPointers p {
+    font-weight: 500;
 }
