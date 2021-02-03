@@ -12,6 +12,7 @@ import { Tag } from "./Tag";
 
 import { Typography } from "@material-ui/core";
 import styles from "./HomePage.module.css";
+import { FeaturedStories } from "./FeaturedStories";
 
 
 export const HomePage = () => {
@@ -67,6 +68,7 @@ export const HomePage = () => {
                         })}
                     </div>
                 </div>
+                <div style = {{height:"40px"}}></div>
                 <div className = {styles.tags}>
                     {
                         ["Education","Technology","Health"]?.map((item,index) => {
@@ -74,6 +76,8 @@ export const HomePage = () => {
                         })
                     }
                 </div>
+                <div style = {{height:"40px"}}></div>
+                <FeaturedStories data = {newsData} />
             </div>
         </>
     );
