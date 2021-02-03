@@ -9,14 +9,8 @@ import { Routes } from "./Routes/Routes";
 
 function App() {
 
-  const dispatch = useDispatch()
-
-  useEffect(() => {
-        
-    dispatch( getNewsData() )
-  }, [])
-
   return (
+=
     <div className="App">
       <Routes />
     </div>

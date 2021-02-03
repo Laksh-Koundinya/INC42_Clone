@@ -1,4 +1,4 @@
-import React from 'react';
+import React, { useState } from 'react';
 import { makeStyles } from '@material-ui/core/styles';
 import Modal from '@material-ui/core/Modal';
 import Fade from '@material-ui/core/Fade';
@@ -8,6 +8,10 @@ import { Button, Checkbox, Divider, FormControlLabel, Grid, Link, TextField, Typ
 import FacebookIcon from '@material-ui/icons/Facebook';
 import LinkedInIcon from '@material-ui/icons/LinkedIn';
 import GoogleAuth from './GoogleAuth';
+import {useDispatch, useSelector} from "react-redux"
+import "./LoginModal.css"
+import { loginUserData } from '../../Redux/LoginRedux/actionCreator';
+import { registrationUser } from '../../Redux/RegisterRedux/actionCreator';
 
 const useStyles = makeStyles((theme) => ({
   modal: {
@@ -18,15 +22,17 @@ const useStyles = makeStyles((theme) => ({
     position:"absolute",
     textAlign:"center",
   },
+ 
   paper: {
     backgroundColor: "black",
     color:"white",
-    height:"500px",
-    width:"400px",
+    height:"600px",
+    width:"380px",
     padding: theme.spacing(2, 4, 3),
     borderRadius:"20px",
     display:"block",
-    overflowY:"scroll"
+    overflowY:"scroll",
+    marginTop:"100px"
   },
   closeButton: {
     position: 'relative',
@@ -37,7 +43,7 @@ const useStyles = makeStyles((theme) => ({
     marginLeft:"90%"
   },
   head:{
-     marginTop:"10px"
+     marginTop:"30px"
   },
   button: {
     '& > *': {
@@ -58,10 +64,13 @@ const useStyles = makeStyles((theme) => ({
   text:{
       background:"rgba(255, 255, 255, 0.12)",
       borderRadius:"30px",
-      padding:theme.spacing(1),
       margin:"5px",
-      textAlign:'center'
-  }
+      textAlign:'center',
+      color:"white",
+      width:"85%",
+      height:"50px"
+  },
+  
 
 }));
 
@@ -70,6 +79,19 @@ export default function LoginModal() {
 
   const classes = useStyles();
   const [open, setOpen] = React.useState(false);
+  const [show,setShow ] = useState(false)
+
+  const [email,setEmail] = useState("")
+  const [password,setPassword] = useState("")
+  const [fname,setFname] = useState("")
+  const [lname,setLname] = useState("")
+  const [company,setCompany] = useState("")
+  const [phone,setPhone] = useState("")
+  const [seniority,setSeniority] = useState("")
+
+const isAuth = useSelector(state => state.login.isAuth)
+const dispatch = useDispatch()
+console.log(isAuth)
 
   const handleOpen = () => {
     setOpen(true);
@@ -78,6 +100,33 @@ export default function LoginModal() {
   const handleClose = () => {
     setOpen(false);
   };
+
+  const handleRegistration = () => {
+    setShow(!show)
+    console.log(show,"-------show")
+  }
+
+  const handleRegister = (e) => {
+    e.preventDefault()
+    const payload = {
+      name: fname+" "+lname,
+      email: email,
+      password: password,
+      username: company,
+      mobile: phone,
+      description: seniority 
+    }
+    dispatch(registrationUser(payload))
+    console.log(...payload)
+  }
+
+  const handleLogin = (e) => {
+    e.preventDefault()
+  
+    dispatch(loginUserData({email,password}))
+    console.log({email,password})
+  }
+
 
   return (
     <div>
@@ -120,31 +169,126 @@ export default function LoginModal() {
             <Divider variant="middle" className={classes.divider} />
             <div>
                 <form>
+                    {show ? <>
+
+                      <TextField
+                        className={classes.text}
+                        InputProps={{ disableUnderline: true ,style: {color: "white",marginLeft:"20px"}}}
+                        required
+                        fullWidth
+                        label="FIRST NAME"
+                        name="fname"
+                        type="text"
+                        autoFocus
+                        value={fname}
+                        onChange={(e)=>setFname(e.target.value)}
+                    />
+                    <TextField
+                        className={classes.text}
+                        InputProps={{ disableUnderline: true ,style: {color: "white",marginLeft:"20px"}}}
+                        required
+                        fullWidth
+                        label="LAST NAME"
+                        name="lname"
+                        type="text"
+                        autoFocus
+                        value={lname}
+                        onChange={(e)=>setLname(e.target.value)}
+                    />
+                    <TextField
+                        className={classes.text}
+                        InputProps={{ disableUnderline: true ,style: {color: "white",marginLeft:"20px"}}}
+                        required
+                        fullWidth
+                        label="EMAIL"
+                        name="Email"
+                        autoFocus
+                        value={email}
+                        onChange={(e) => setEmail(e.target.value)}
+                    />
+                    <TextField
+                        className={classes.text}
+                        InputProps={{ disableUnderline: true ,style: {color: "white",marginLeft:"20px"}}}
+                        required
+                        fullWidth
+                        label="PASSWORD"
+                        name="password"
+                        type="password"
+                        autoFocus
+                        value={password}
+                        onChange={(e) => setPassword(e.target.value)}
+                    />
+                    <TextField
+                        className={classes.text}
+                        InputProps={{ disableUnderline: true ,style: {color: "white",marginLeft:"20px"}}}
+                        required
+                        fullWidth
+                        label="COMPANY NAME"
+                        name="company"
+                        autoFocus
+                        value={company}
+                        onChange={(e) => setCompany(e.target.value)}
+                    />
+                    <TextField
+                        className={classes.text}
+                        InputProps={{ disableUnderline: true ,style: {color: "white",marginLeft:"20px"}}}
+                        required
+                        fullWidth
+                        label="SENIORITY"
+                        name="seniority"
+                        type="text"
+                        autoFocus
+                        value={seniority}
+                        onChange={(e) => setSeniority(e.target.value)}
+                    />
+                    <TextField
+                        className={classes.text}
+                        InputProps={{ disableUnderline: true ,style: {color: "white",marginLeft:"20px"}}}
+                        required
+                        fullWidth
+                        label="PHONE NUMBER"
+                        name="phone"
+                        type="number"
+                        autoFocus
+                        value={phone}
+                        onChange={(e)=>setPhone(e.target.value)}
+                    />
+                    
+                    </>:<>
+
 
                     <TextField
                         className={classes.text}
-                        required
                         fullWidth
-                        id="email"
-                        label="Email Address"
-                        name="email"
-                        autoComplete="email"
+                        InputProps={{ disableUnderline: true ,style: {color: "white",marginLeft:"20px"}}}
+                        label="EMAIL"
+                        type="text"
                         autoFocus
+                        value={email}
+                        onChange={(e) => setEmail(e.target.value)}
                     />
                     <TextField
+                        InputProps={{ disableUnderline: true ,style: {color: "white",marginLeft:"20px"}}}
                         className={classes.text}
-                        required
                         fullWidth
-                        name="password"
-                        label="Password"
-                        type="password"
-                        id="password"
-                        autoComplete="current-password"
+                        value={password}
+                        label="PASSWORD"
+                        type="text"
+                        onChange={(e) => setPassword(e.target.value)}
                     />
+                    
+                    
+                    </>}
+                    
                     <Grid container>
                     <Grid item>
                             <FormControlLabel
-                                control={<Checkbox value="remember" color="primary" />}
+                                control={<Checkbox value="remember"  
+                                style ={{
+                                  color: "white",
+                                }}
+                                />}
+
                                 label="STAY LOGGED IN"
                                 />
                         </Grid>
@@ -156,17 +300,30 @@ export default function LoginModal() {
                         </Grid>
                 </Grid>
           
+                {show ?
                 <Button
+                type="submit"
+                fullWidth
+                variant="contained"
+                color="secondary"
+                className={classes.submit}
+                onClick={handleRegister}
+            >
+                SIGN UP
+            </Button> : <Button
                     type="submit"
                     fullWidth
                     variant="contained"
                     color="secondary"
                     className={classes.submit}
+                    onClick={handleLogin}
                 >
                     LOGIN
                 </Button>
-                <Link href="#" variant="body2" color="secondary">
-                        I DONT HAVE AN ACCOUNT
+              
+              }
+                <Link href="#" variant="body2" color="secondary" onClick={handleRegistration}>
+                        {show ? "I HAVE AN ACCOUNT" : "I DONT HAVE AN ACCOUNT"}
                     </Link>
             </form>
             </div>
