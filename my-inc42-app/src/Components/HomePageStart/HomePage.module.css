@@ -1,0 +1,56 @@
+
+.mainHeader{
+    max-width: 1300px;
+    margin-left: auto;
+    margin-right: auto;
+}
+
+.mainLeft{
+    max-width: 65% 
+
+}
+.leftCard{
+    width: 100%;
+}
+.twoCards{
+    display: flex;
+    margin-right:20px;
+    box-sizing: border-box;
+    max-width: 100%;
+    
+}
+.twoCards > div{
+    margin-right: 4%;
+    margin-top:4%
+
+}
+
+.rightCard{
+    max-width: 35%;
+    /* border: 1px solid red; */
+
+}
+
+.rightCard > div {
+    margin:0px
+}
+
+.mainTop{
+    display: flex;
+    
+}
+
+.tagButton {
+    border-radius:50px;
+    color:white;
+    background-color :#e33326;
+     border: none;
+     
+}
+.tagButton:hover{
+    background-color: "black";
+}
+
+.tags > button {
+    margin-right: 5px;
+}
