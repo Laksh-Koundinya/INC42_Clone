@@ -21,11 +21,12 @@ const useStyles = makeStyles((theme) => ({
   paper: {
     backgroundColor: "black",
     color:"white",
-    height:"auto",
+    height:"500px",
     width:"400px",
     padding: theme.spacing(2, 4, 3),
     borderRadius:"20px",
     display:"block",
+    overflowY:"scroll"
   },
   closeButton: {
     position: 'relative',
