@@ -1,4 +1,5 @@
-import React from "react";
+import React, { useState } from "react";
+import { useFetch } from "./Hooks/CustomHooks";
 import { makeStyles } from "@material-ui/core/styles";
 import Dialog from "@material-ui/core/Dialog";
 import Box from "@material-ui/core/Box";
@@ -10,6 +11,7 @@ import SearchIcon from "@material-ui/icons/Search";
 import InputBase from "@material-ui/core/InputBase";
 import ArrowBackIcon from "@material-ui/icons/ArrowBack";
 import CancelIcon from "@material-ui/icons/Cancel";
+import SearchCard from "./SearchModalComponent/SearchCard";
 
 const useStyles = makeStyles((theme) => ({
   search: {
@@ -32,7 +34,7 @@ const useStyles = makeStyles((theme) => ({
     position: "relative",
     borderRadius: "7px",
     backgroundColor: "white",
-    marginLeft: 400,
+    marginLeft: "21%",
     padding: "20px",
     width: "55%",
     height: "35px",
@@ -63,8 +65,12 @@ const useStyles = makeStyles((theme) => ({
     justifyContent: "flex-end",
     color: "grey",
   },
+  searchResult: {
+    marginTop: "50px",
+  },
 }));
 
+// Transition Component
 const Transition = React.forwardRef(function Transition(props, ref) {
   const [checked, setChecked] = React.useState(false);
 
@@ -75,9 +81,14 @@ const Transition = React.forwardRef(function Transition(props, ref) {
   );
 });
 
+// Search Modal Component
 export default function SearchModal() {
   const classes = useStyles();
   const [open, setOpen] = React.useState(false);
+  const [query, setQuery] = useState("");
+  const url = `https://mock-server-anusha.herokuapp.com/news?q=${query}`;
+  const [loading, error, data] = useFetch(url);
+  console.log(loading, error, data, "data in zomato");
 
   const handleClickOpen = () => {
     setOpen(true);
@@ -129,16 +140,25 @@ export default function SearchModal() {
                   input: classes.inputInput,
                 }}
                 inputProps={{ "aria-label": "search" }}
+                value={query}
+                onChange={(e) => setQuery(e.target.value)}
               />
-              {/* <div className={classes.cancelIcon}>
-                <CancelIcon style={{ fontSize: "35px" }} />
-              </div> */}
             </div>
           </Box>
         </Box>
 
         {/* Dialog Below Section */}
-        <Box></Box>
+        <Box className={classes.searchResult}>
+          {data &&
+            data.map((item) => (
+              <SearchCard
+                img={item.image}
+                author={item.author}
+                title={item.title}
+                date={item.published_at}
+              />
+            ))}
+        </Box>
       </Dialog>
     </div>
   );
