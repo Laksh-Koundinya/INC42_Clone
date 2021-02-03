@@ -1,8 +1,6 @@
-
 import React ,{useEffect} from "react"
 import {useDispatch} from "react-redux"
 import './App.css';
-
 import LoginModal from "./Components/Login_Signup/LoginModal"
 import { HomePage } from './Components/HomePageStart/HomePage';
 import { getNewsData } from './Redux/actionCreators';
@@ -19,9 +17,8 @@ function App() {
   }, [])
 
   return (
-
-    <div >
-      <Routes/>
+    <div className="App">
+      <Routes />
     </div>
   );
 }
