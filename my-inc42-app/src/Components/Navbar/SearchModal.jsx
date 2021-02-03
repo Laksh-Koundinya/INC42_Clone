@@ -12,6 +12,7 @@ import InputBase from "@material-ui/core/InputBase";
 import ArrowBackIcon from "@material-ui/icons/ArrowBack";
 import CancelIcon from "@material-ui/icons/Cancel";
 import SearchCard from "./SearchModalComponent/SearchCard";
+import SearchBottom from "./SearchModalComponent/SearchBottom";
 
 const useStyles = makeStyles((theme) => ({
   search: {
@@ -159,6 +160,7 @@ export default function SearchModal() {
               />
             ))}
         </Box>
+        <SearchBottom />
       </Dialog>
     </div>
   );
