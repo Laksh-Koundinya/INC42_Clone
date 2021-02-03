@@ -1,14 +1,12 @@
-
 import React, { useEffect } from "react";
 import { useDispatch, useSelector } from "react-redux";
 import {useHistory} from "react-router-dom"
 
-import { filterNews, getNewsData } from "../../Redux/actionCreators";
+import { getNewsData } from "../../Redux/actionCreators";
 import { BigCard } from "./Cards/BigCard.jsx";
 import { NormalCard } from "./Cards/NormalCard";
 import { SmallCard } from "./Cards/SmallCard";
 import { Tag } from "./Tag";
-
 
 import { Typography } from "@material-ui/core";
 import styles from "./HomePage.module.css";
@@ -32,6 +30,17 @@ export const HomePage = () => {
         dispatch(getNewsData());
     }, []);
 
+    const goToDisplayNews = (id,data) =>{
+        const location = {
+            pathName: `/news-details/${id}`,
+            state:{
+                data:data
+            }
+        }
+        console.log(location,"loc")
+        history.push( location.pathName )
+    }
+
     console.log(newsData, "DTA");
     console.log(newsData, "filtered")
     return (
@@ -41,9 +50,9 @@ export const HomePage = () => {
                     <div className={styles.mainLeft}>
                         <div className={styles.leftCard}>
                             {newsData?.reverse().map((item, i) => {
-                                if (i == 0) {
+                                if (i === 0) {
                                     return (
-                                        <BigCard data={item} key={item.id} />
+                                        <BigCard data={item} key={item.id} goToDisplayNews = {  goToDisplayNews } />
                                     );
                                 }
                             })}
@@ -52,7 +61,7 @@ export const HomePage = () => {
                             {newsData?.reverse().map((item, i) => {
                                 if (i >= 1 && i <= 2) {
                                     return (
-                                        <NormalCard data={item} key={item.id} />
+                                        <NormalCard data={item} key={item.id} goToDisplayNews = {  goToDisplayNews }/>
                                     );
                                 }
                             })}
@@ -62,7 +71,7 @@ export const HomePage = () => {
                         <Typography variant="h4">Editors picks</Typography>
                         {newsData?.reverse().map((item, i) => {
                             if (i > 2 && i <= 7) {
-                                return <SmallCard data={item} key={item.id} />;
+                                return <SmallCard data={item} key={item.id} goToDisplayNews = {  goToDisplayNews } />;
                             }
                         })}
                     </div>
