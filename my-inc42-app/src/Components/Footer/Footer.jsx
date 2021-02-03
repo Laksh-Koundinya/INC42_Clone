@@ -30,7 +30,7 @@ const Footer = () => {
   const classes = useStyles();
   return (
     <>
-      <AppBar position="fixed" className={classes.appBar}>
+      <AppBar position="relative" className={classes.appBar}>
         <img
           src="https://cdn.inc42.com/wp-content/uploads/2018/07/inc42-footer-logo-1-1.svg"
           alt="Logo"
