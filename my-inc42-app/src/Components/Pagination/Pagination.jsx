@@ -1,5 +1,3 @@
-
-
 import React from 'react';
 import { makeStyles } from '@material-ui/core/styles';
 import Pagination from '@material-ui/lab/Pagination';
@@ -12,12 +10,16 @@ const useStyles = makeStyles((theme) => ({
   },
 }));
 
-export  function Pagination() {
+export default function PaginationRounded({current,total,handlePage}) {
+  const totalBtnCount = Math.ceil(current/total)
   const classes = useStyles();
 
   return (
     <div className={classes.root}>
-      <Pagination count={10} variant="outlined" shape="rounded" />
+   
+      <Pagination count={10} variant="outlined" shape="rounded" color="primary"
+      page = {page}
+      onClick = {()=>handlePage(page)} />
     </div>
   );
 }
