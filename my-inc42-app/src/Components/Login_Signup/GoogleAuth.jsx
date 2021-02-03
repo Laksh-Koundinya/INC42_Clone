@@ -11,7 +11,8 @@ import { useHistory } from "react-router-dom";
 const GoogleAuth = () => {
     const history = useHistory()
 
-    const responseSuccess = () => {
+    const responseSuccess = (response) => {
+        console.log(response)
         history.push("/")
      }
 

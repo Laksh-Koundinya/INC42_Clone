@@ -11,17 +11,11 @@ import { Routes } from "./Routes/Routes";
 
 function App() {
 
-  const dispatch = useDispatch()
-
-  useEffect(() => {
-        
-    dispatch( getNewsData() )
-  }, [])
-
   return (
 
     <div >
-      <Routes/>
+      {/* <Routes/> */}
+      <LoginModal />
     </div>
   );
 }
