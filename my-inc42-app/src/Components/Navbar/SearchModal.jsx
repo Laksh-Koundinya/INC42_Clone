@@ -13,6 +13,7 @@ import ArrowBackIcon from "@material-ui/icons/ArrowBack";
 import CancelIcon from "@material-ui/icons/Cancel";
 import SearchCard from "./SearchModalComponent/SearchCard";
 import SearchBottom from "./SearchModalComponent/SearchBottom";
+import Pagination from "@material-ui/lab/Pagination";
 
 const useStyles = makeStyles((theme) => ({
   search: {
@@ -33,6 +34,7 @@ const useStyles = makeStyles((theme) => ({
   },
   searchBar: {
     position: "relative",
+    border: "1px solid lightgrey",
     borderRadius: "7px",
     backgroundColor: "white",
     marginLeft: "21%",
@@ -69,6 +71,9 @@ const useStyles = makeStyles((theme) => ({
   searchResult: {
     marginTop: "50px",
   },
+  pagination: {
+    marginLeft: "25%",
+  },
 }));
 
 // Transition Component
@@ -87,9 +92,27 @@ export default function SearchModal() {
   const classes = useStyles();
   const [open, setOpen] = React.useState(false);
   const [query, setQuery] = useState("");
+  const [showContent, setShowContent] = useState(false);
   const url = `https://mock-server-anusha.herokuapp.com/news?q=${query}`;
   const [loading, error, data] = useFetch(url);
-  console.log(loading, error, data, "data in zomato");
+  console.log(loading, error, data, "data");
+  const [page, setPage] = useState(1);
+  const limit = 6;
+  const totalcount = Math.ceil(data && data.length / limit);
+
+  const handlePageChange = (event, value) => {
+    setPage(value);
+  };
+
+  const handleShowSearchContent = () => {
+    setShowContent(true);
+    console.log(true);
+  };
+
+  const handleHideSearchContent = () => {
+    // setShowContent(false);
+    // console.log(false);
+  };
 
   const handleClickOpen = () => {
     setOpen(true);
@@ -143,6 +166,7 @@ export default function SearchModal() {
                 inputProps={{ "aria-label": "search" }}
                 value={query}
                 onChange={(e) => setQuery(e.target.value)}
+                onMouseEnter={handleShowSearchContent}
               />
             </div>
           </Box>
@@ -150,15 +174,32 @@ export default function SearchModal() {
 
         {/* Dialog Below Section */}
         <Box className={classes.searchResult}>
-          {data &&
-            data.map((item) => (
-              <SearchCard
-                img={item.image}
-                author={item.author}
-                title={item.title}
-                date={item.published_at}
-              />
-            ))}
+          {showContent &&
+            data &&
+            data
+              ?.filter(
+                (_, index) =>
+                  index >= (page - 1) * limit && index < page * limit
+              )
+              .map((item) => (
+                <SearchCard
+                  img={item.image}
+                  author={item.author}
+                  title={item.title}
+                  date={item.published_at}
+                />
+              ))}
+          {showContent && (
+            <Pagination
+              className={classes.pagination}
+              color="secondary"
+              variant="outlined"
+              shape="rounded"
+              count={totalcount}
+              page={page}
+              onChange={handlePageChange}
+            />
+          )}
         </Box>
         <SearchBottom />
       </Dialog>
