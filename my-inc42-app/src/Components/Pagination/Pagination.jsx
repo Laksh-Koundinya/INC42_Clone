@@ -11,14 +11,13 @@ const useStyles = makeStyles((theme) => ({
   },
 }));
 
-export function PaginationRounded({page,handlePage,limit,data}) {
+export function PaginationRounded({page,total, handlePageChange}) {
   const classes = useStyles();
 
-  const totalPages = Math.ceil( data.length/limit)
   return (
     <div className={classes.root}>
-      <Typography>Page: {page}</Typography>
-      <Pagination count={Number(5) } page={page} onChange={handlePage} />
+    
+      <Pagination count={total } page={page} onChange={handlePageChange} />
     </div>
   );
 }
