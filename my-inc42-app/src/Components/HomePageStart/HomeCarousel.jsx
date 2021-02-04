@@ -9,9 +9,7 @@ export default class CustomArrows extends Component {
       dots: true,
       infinite: true,
       slidesToShow: 3,
-      slidesToScroll: 1
-  
-     
+      slidesToScroll: 1     
     };
     const {data} = this.props;
     console.log(data,"Carosusel ---")
