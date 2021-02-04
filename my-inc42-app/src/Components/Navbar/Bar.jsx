@@ -4,6 +4,7 @@ import { makeStyles } from "@material-ui/core/styles";
 import Typography from "@material-ui/core/Typography";
 import HoverMenu from "./HoverMenu";
 import SearchModal from "./SearchModal";
+import { useHistory } from "react-router-dom";
 
 const popoverData = [
   {
@@ -79,6 +80,13 @@ const useStyles = makeStyles((theme) => ({
 
 const Bar = () => {
   const classes = useStyles();
+  const history = useHistory()
+  const gotoAllNews=()=>{
+    history.push("/allnews")
+  }
+  const gotoFeaturedNews=()=>{
+    history.push("/featuredNews")
+  }
 
   return (
     <>
@@ -86,10 +94,10 @@ const Bar = () => {
         <SearchModal />
         <HoverMenu label="INC42 PLUS" data={popoverData[0].data1} />
         <HoverMenu label="FOR THE MAKERS" data={popoverData[1].data2} />
-        <Typography variant="button" display="block">
+        <Typography variant="button" display="block" onClick = {gotoAllNews}>
           NEWS
         </Typography>
-        <Typography variant="button" display="block">
+        <Typography variant="button" display="block" onClick = {gotoFeaturedNews}>
           FEATURES
         </Typography>
         <HoverMenu label="INFOCUS" data={popoverData[2].data3} />
