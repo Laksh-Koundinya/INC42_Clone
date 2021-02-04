@@ -8,6 +8,7 @@ import FacebookIcon from "@material-ui/icons/Facebook";
 import TwitterIcon from "@material-ui/icons/Twitter";
 import LinkedInIcon from "@material-ui/icons/LinkedIn";
 import MoreHorizIcon from "@material-ui/icons/MoreHoriz";
+import LoginModal from "../Login_Signup/LoginModal";
 
 const useStyles = makeStyles((theme) => ({
   root: {
@@ -57,9 +58,8 @@ const Navbar = () => {
           </Box>
           <Box display="flex" justifyContent="space-evenly">
             <Box>
-              <Button className={classes.buttonStyle} color="inherit">
-                LOGIN
-              </Button>
+              
+              <LoginModal />
             </Box>
             <Box>
               <Button className={classes.buttonStyle} color="inherit">
