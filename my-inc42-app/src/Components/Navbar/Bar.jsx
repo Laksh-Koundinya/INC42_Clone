@@ -67,10 +67,9 @@ const popoverData = [
 
 const useStyles = makeStyles((theme) => ({
   bar: {
-    marginTop: "-25px",
-    marginLeft: "25%",
-    paddingTop: "10px",
-    width: "50%",
+    margin:"-2% 12% 0% 12%",
+    padding:"1% 0.5% 0.5% 0.5%",
+    width: "70%",
     minHeight: "40px",
     display: "flex",
     flexDirection: "row",
@@ -90,7 +89,7 @@ const Bar = () => {
 
   return (
     <>
-      <Paper className={classes.bar} elevation={3}>
+      <Paper className={classes.bar} elevation={3} position="fixed">
         <SearchModal />
         <HoverMenu label="INC42 PLUS" data={popoverData[0].data1} />
         <HoverMenu label="FOR THE MAKERS" data={popoverData[1].data2} />

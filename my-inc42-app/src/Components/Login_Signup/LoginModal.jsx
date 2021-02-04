@@ -122,19 +122,19 @@ export default function LoginModal() {
             <Typography variant="h4" component="h1">{show ? "Sign Up" : "Login"}</Typography>
             <Typography variant="h6"  component="p" color="#f1f8e9" >{show ? "Sign up a new account using a social account": "Login into your account using a social account"}</Typography>
             <div className={classes.button}>
-            <Button variant="contained" color="primary">
+            <Button variant="contained" color="primary" onClick={() => alert("Sorry this feature is not available, We're currently working on it") }>
                 <FacebookIcon />
                 Facebook
             </Button>
             </div>
             <div className={classes.button}>
-            <Button variant="contained" color="primary">
+            <Button variant="contained" color="primary" >
                 <GoogleAuth setOpen= {setOpen} setGoogle={setGoogle}/> 
                 
             </Button>
             </div>
             <div className={classes.button}>
-            <Button variant="contained" color="primary">
+            <Button variant="contained" color="primary" onClick={() => alert("Sorry this feature is not available, We're currently working on it") }>
                 <LinkedInIcon />
                 LinkedIn
             </Button>
@@ -144,7 +144,7 @@ export default function LoginModal() {
 
               {show ? <RegistrationForm /> : <LoginForm handleOpen={handleOpen} />}
 
-                <Link href="#" variant="body2" color="secondary" onClick={handleRegistration}>
+                <Link variant="body2" color="secondary" onClick={handleRegistration}>
                         {show ? "I HAVE AN ACCOUNT" : "I DONT HAVE AN ACCOUNT"}
                     </Link>
             </div>

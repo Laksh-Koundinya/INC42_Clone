@@ -86,7 +86,7 @@ function LoginForm({handleOpen}) {
                         </Grid>
                 
                         <Grid item xs>
-                        <Link href="#" variant="body2" color="secondary">
+                        <Link href="" variant="body2" color="secondary" onClick={() => alert("Sorry this feature is not available, We're currently working on it") }>
                             I FORGOT MY PASSWORD
                         </Link>
                         </Grid>

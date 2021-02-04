@@ -11,6 +11,7 @@ import { Tag } from "./Tag";
 import { Typography } from "@material-ui/core";
 import styles from "./HomePage.module.css";
 import { FeaturedStories } from "./FeaturedStories";
+import CircularProgress from '@material-ui/core/CircularProgress';
 
 
 export const HomePage = () => {
@@ -51,7 +52,7 @@ export const HomePage = () => {
     return (
         <>
             <div className={styles.mainHeader}>
-            { loading && <div>...loading pls wait</div> }
+            { loading && <div><CircularProgress disableShrink /></div> }
                 {error && <div>something went wrong</div>}
                 <div className={styles.mainTop}>
                 
