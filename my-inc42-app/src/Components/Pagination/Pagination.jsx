@@ -3,6 +3,7 @@ import { makeStyles } from '@material-ui/core/styles';
 import Typography from '@material-ui/core/Typography';
 import Pagination from '@material-ui/lab/Pagination';
 
+
 const useStyles = makeStyles((theme) => ({
   root: {
     '& > * + *': {
@@ -12,6 +13,7 @@ const useStyles = makeStyles((theme) => ({
     },
   },
 }));
+
 
 export function PaginationRounded({page,total, handlePageChange}) {
   const classes = useStyles();
