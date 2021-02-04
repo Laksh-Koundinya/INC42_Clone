@@ -3,9 +3,10 @@ import { FILTER_NEWS_FAILURE, FILTER_NEWS_REQUEST, FILTER_NEWS_SUCCESS, GET_NEWS
 
 const initState = {
     newsData:[],
-    error:false,
-    loading:false,
-    message:""
+    error: null,
+    loading:null,
+    message:"",
+    results_found:0
 }
 export const reducer = ( state = initState, {type,payload} ) => {
 
@@ -45,7 +46,8 @@ export const reducer = ( state = initState, {type,payload} ) => {
             return{
                 loading:false,
                 error:false,
-                newsData: payload
+                newsData: payload,
+                results_found:payload[0].results_found
             }
         }case FILTER_NEWS_FAILURE:{
             return{
