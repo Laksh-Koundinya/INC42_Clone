@@ -8,15 +8,13 @@ import { HomePage } from "../Components/HomePageStart/HomePage";
 import {AllNews} from "../Components/OnlyNews/AllNews"
 
 export const Routes = () => {
-    return (
-        <div>
-            <Navbar />
-            <Route exact path="/" render={() => <HomePage />} />
-            <Route exact path = "/allnews" render =  {()=> <AllNews /> } />
-            <Route exact path="/news-details/:id" render={() => <DisplayNews />} />
-            <Route exact path="/tags/:id" render={() => <FilterNews />} />
-            <Footer />
-        </div>
-    );
+  return (
+    <div>
+      <Navbar />
+      <Route exact path="/" render={() => <HomePage />} />
+      <Route exact path="/news-details/:id" render={() => <DisplayNews />} />
+      <Route exact path="/tags/:id" render={() => <FilterNews />} />
+      <Footer />
+    </div>
+  );
 };
-
