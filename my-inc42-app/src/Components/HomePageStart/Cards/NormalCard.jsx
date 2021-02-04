@@ -19,7 +19,8 @@ const useStyles = makeStyles((theme) => ({
     title: {
         color: "crimson",
         fontSize: "15px",
-        textTransform:"uppercase"
+        textTransform:"uppercase",
+        textAlign:"start"
     },
     bottom: {
         display: "flex",
