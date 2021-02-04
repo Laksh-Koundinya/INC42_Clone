@@ -1,13 +1,17 @@
-import React from 'react';
+import React, { useState } from 'react';
 import { makeStyles } from '@material-ui/core/styles';
 import Modal from '@material-ui/core/Modal';
 import Fade from '@material-ui/core/Fade';
 import IconButton from '@material-ui/core/IconButton';
 import CloseIcon from '@material-ui/icons/Close';
-import { Button, Checkbox, Divider, FormControlLabel, Grid, Link, TextField, Typography } from '@material-ui/core';
+import { Button, Divider,  Link, Typography } from '@material-ui/core';
 import FacebookIcon from '@material-ui/icons/Facebook';
 import LinkedInIcon from '@material-ui/icons/LinkedIn';
 import GoogleAuth from './GoogleAuth';
+import "./LoginModal.css"
+import RegistrationForm from './RegistrationForm';
+import LoginForm from './LoginForm';
+import {useSelector} from "react-redux"
 
 const useStyles = makeStyles((theme) => ({
   modal: {
@@ -18,15 +22,17 @@ const useStyles = makeStyles((theme) => ({
     position:"absolute",
     textAlign:"center",
   },
+ 
   paper: {
     backgroundColor: "black",
     color:"white",
-    height:"500px",
-    width:"400px",
+    height:"600px",
+    width:"380px",
     padding: theme.spacing(2, 4, 3),
     borderRadius:"20px",
     display:"block",
-    overflowY:"scroll"
+    overflowY:"scroll",
+    marginTop:"100px"
   },
   closeButton: {
     position: 'relative',
@@ -37,7 +43,7 @@ const useStyles = makeStyles((theme) => ({
     marginLeft:"90%"
   },
   head:{
-     marginTop:"10px"
+     marginTop:"30px"
   },
   button: {
     '& > *': {
@@ -51,17 +57,13 @@ const useStyles = makeStyles((theme) => ({
       background:"gray",
       margin:theme.spacing(2),
   },
-  submit: {
-    margin: theme.spacing(3, 0, 2),
-    borderRadius:"20px"
+  buttonStyle: {
+    borderRadius: "2px",
+    backgroundColor: "#f2abac",
+    color: "red",
+    height: "20px",
+    marginRight: "10px",
   },
-  text:{
-      background:"rgba(255, 255, 255, 0.12)",
-      borderRadius:"30px",
-      padding:theme.spacing(1),
-      margin:"5px",
-      textAlign:'center'
-  }
 
 }));
 
@@ -70,6 +72,7 @@ export default function LoginModal() {
 
   const classes = useStyles();
   const [open, setOpen] = React.useState(false);
+  const [show,setShow ] = useState(false)
 
   const handleOpen = () => {
     setOpen(true);
@@ -79,11 +82,16 @@ export default function LoginModal() {
     setOpen(false);
   };
 
+  const handleRegistration = () => {
+    setShow(!show)
+    console.log(show,"-------show")
+  }
+
   return (
     <div>
-      <button type="button" onClick={handleOpen}>
-        modal
-      </button>
+      <Button className={classes.buttonStyle} color="inherit" onClick={handleOpen} >
+                LOGIN
+              </Button>
       <Modal
         className={classes.modal}
         open={open}
@@ -97,8 +105,8 @@ export default function LoginModal() {
                         <CloseIcon />
                 </IconButton>
             </div>
-            <Typography variant="h4" component="h1">Login</Typography>
-            <Typography variant="h6"  component="p" color="#f1f8e9" >Login into your account using a social account</Typography>
+            <Typography variant="h4" component="h1">{show ? "Sign Up" : "Login"}</Typography>
+            <Typography variant="h6"  component="p" color="#f1f8e9" >{show ? "Sign up a new account using a social account": "Login into your account using a social account"}</Typography>
             <div className={classes.button}>
             <Button variant="contained" color="primary">
                 <FacebookIcon />
@@ -119,56 +127,12 @@ export default function LoginModal() {
             </div>
             <Divider variant="middle" className={classes.divider} />
             <div>
-                <form>
 
-                    <TextField
-                        className={classes.text}
-                        required
-                        fullWidth
-                        id="email"
-                        label="Email Address"
-                        name="email"
-                        autoComplete="email"
-                        autoFocus
-                    />
-                    <TextField
-                        className={classes.text}
-                        required
-                        fullWidth
-                        name="password"
-                        label="Password"
-                        type="password"
-                        id="password"
-                        autoComplete="current-password"
-                    />
-                    <Grid container>
-                    <Grid item>
-                            <FormControlLabel
-                                control={<Checkbox value="remember" color="primary" />}
-                                label="STAY LOGGED IN"
-                                />
-                        </Grid>
-                
-                        <Grid item xs>
-                        <Link href="#" variant="body2" color="secondary">
-                            I FORGOT MY PASSWORD
-                        </Link>
-                        </Grid>
-                </Grid>
-          
-                <Button
-                    type="submit"
-                    fullWidth
-                    variant="contained"
-                    color="secondary"
-                    className={classes.submit}
-                >
-                    LOGIN
-                </Button>
-                <Link href="#" variant="body2" color="secondary">
-                        I DONT HAVE AN ACCOUNT
+              {show ? <RegistrationForm /> : <LoginForm  />}
+
+                <Link href="#" variant="body2" color="secondary" onClick={handleRegistration}>
+                        {show ? "I HAVE AN ACCOUNT" : "I DONT HAVE AN ACCOUNT"}
                     </Link>
-            </form>
             </div>
           </div>
         </Fade>

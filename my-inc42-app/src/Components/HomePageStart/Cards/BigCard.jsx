@@ -16,6 +16,7 @@ const useStyles = makeStyles((theme) => ({
     root: {
         display: "flex",
         maxWidth: 800,
+        margin:20
     },
     details: {
         // display: "flex",
@@ -32,11 +33,12 @@ const useStyles = makeStyles((theme) => ({
     title: {
         color: "crimson",
         fontSize: "15px",
-        textTransform:"uppercase"
+        textTransform:"uppercase",
+        textAlign:"start"
 
     },
     avatar: {},
-    subTitle: {},
+    subTitle: { textAlign:"start"},
     hiddenText: {
         maxHeight: 24,
         overflow: "hidden",
@@ -94,11 +96,12 @@ function BigCard( { data , goToDisplayNews } ) {
                             />
                         }
                     />
-                    <div>
+
+                    <CardContent>
                         <span className={styles.author}>{data.author}</span>
                         {/* three elements with full stop */}
                         <Date published = {data.published_at} timeTakenToRead = {data.time_taken_read} />
-                    </div>
+                    </CardContent>
                 </div>
             </div>
         </Card>

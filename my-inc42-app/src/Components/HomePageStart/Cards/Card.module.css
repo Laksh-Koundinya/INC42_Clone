@@ -9,17 +9,20 @@
 }
 .author{
     font-weight: bold;
-    text-transform:Capitalize
+    text-transform:Capitalize;
+    text-align:start
 }
 
 .cardBottom{
     display: flex;
+    
     align-items:center;
     /* border:1px solid blue */
 }
 
 .subTitle{
-    font-weight: 900
+    font-weight: 900;
+    text-align: start;
 }
 .subTitle:hover{
     color: crimson;
