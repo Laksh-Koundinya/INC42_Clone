@@ -31,6 +31,9 @@ export const registrationUser = ({
   axios({
     method: "POST",
     url: "https://masai-api-mocker.herokuapp.com/auth/register",
+    headers:{
+      "Content-Type":"application/json"
+    },
     data: {
       name,
       email,

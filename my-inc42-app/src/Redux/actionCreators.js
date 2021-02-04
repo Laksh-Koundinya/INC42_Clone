@@ -1,4 +1,4 @@
-import { GET_NEWS_REQUEST, GET_NEWS_SUCCESS ,GET_NEWS_FAILURE, FILTER_NEWS_SUCCESS} from "./actionTypes";
+import { GET_NEWS_REQUEST, GET_NEWS_SUCCESS ,GET_NEWS_FAILURE, FILTER_NEWS_SUCCESS, FILTER_NEWS_REQUEST} from "./actionTypes";
 import axios from "axios"
 
 export const getNewsRequest = () =>{
@@ -38,7 +38,7 @@ export const getNewsData = () =>(dispatch) =>{
 // filtering data based on tags
 export const filterNewsRequest = () =>{
     return{
-        type:FILTER_NEWS_SUCCESS,
+        type:FILTER_NEWS_REQUEST,
     }
 }
 export const filterNewsSuccess = (payload) =>{
@@ -53,12 +53,17 @@ export const filterNewsFailure = (payload) =>{
         payload:payload
     }
 }
-export const filterNews = (label) => (dispatch) => {
+export const filterNews = (label,page,limit,start) => (dispatch) => {
     dispatch( filterNewsRequest() )
     label = label.toLowerCase()
     const config ={
         method:"get",
         url: `https://mock-server-anusha.herokuapp.com/${label}`,
+        params:{
+            _page: page || 1,
+            _limit: limit,
+            _start:start || 0
+        }
     
     }
 

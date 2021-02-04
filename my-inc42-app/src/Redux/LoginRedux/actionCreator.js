@@ -21,9 +21,12 @@ export const loginUserData = ({ email, password }) => (dispatch) => {
   axios({
     method: "POST",
     url: "https://masai-api-mocker.herokuapp.com/auth/login",
+    headers:{
+      'Content-Type':"application/json"
+    },
     data: {
-      email,
-      password
+      "username":email,
+      "password":password
     }
   })
     .then((res) => {
