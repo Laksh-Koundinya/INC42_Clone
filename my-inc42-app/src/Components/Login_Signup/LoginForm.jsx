@@ -54,6 +54,7 @@ function LoginForm({handleOpen}) {
             <TextField
                         className={classes.text}
                         fullWidth
+                        required
                         InputProps={{ disableUnderline: true ,style: {color: "white",marginLeft:"20px"}}}
                         label="EMAIL"
                         type="text"
@@ -65,6 +66,7 @@ function LoginForm({handleOpen}) {
                         InputProps={{ disableUnderline: true ,style: {color: "white",marginLeft:"20px"}}}
                         className={classes.text}
                         fullWidth
+                        required
                         value={password}
                         label="PASSWORD"
                         type="text"

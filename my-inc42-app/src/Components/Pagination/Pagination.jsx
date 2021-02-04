@@ -14,13 +14,7 @@ const useStyles = makeStyles((theme) => ({
   },
 }));
 
-const useStyles = makeStyles((theme) => ({
-  root: {
-    '& > * + *': {
-      marginTop: theme.spacing(2),
-    },
-  },
-}));
+
 
 export function PaginationRounded({page,total, handlePageChange}) {
   const classes = useStyles();

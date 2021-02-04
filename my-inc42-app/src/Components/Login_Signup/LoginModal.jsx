@@ -73,6 +73,7 @@ export default function LoginModal() {
   const classes = useStyles();
   const [open, setOpen] = React.useState(false);
   const [show,setShow ] = useState(false)
+  const [google,setGoogle] = useState(false)
   const isAuth = useSelector(state => state.login.isAuth)
   const isRegister = useSelector(state => state.register.isRegister)
   
@@ -84,6 +85,9 @@ export default function LoginModal() {
       setShow(false)
     }
   }, [isAuth,isRegister])
+
+ 
+
   const handleOpen = () => {
     setOpen(true);
   };
@@ -100,7 +104,7 @@ export default function LoginModal() {
   return (
     <div>
       <Button className={classes.buttonStyle} color="inherit" onClick={handleOpen} >
-                {isAuth ? "MY ACCOUNT" : "LOGIN"}
+                {isAuth || google ? "MY ACCOUNT" : "LOGIN"}
               </Button>
       <Modal
         className={classes.modal}
@@ -125,7 +129,7 @@ export default function LoginModal() {
             </div>
             <div className={classes.button}>
             <Button variant="contained" color="primary">
-                <GoogleAuth /> 
+                <GoogleAuth setOpen= {setOpen} setGoogle={setGoogle}/> 
                 
             </Button>
             </div>
