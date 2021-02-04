@@ -28,8 +28,11 @@ const useStyles = makeStyles((theme) => ({
     },
     category: {
         color: "crimson",
+        textAlign:"start"
     },
-    title: {},
+    title: {
+        textAlign:"start"
+    },
     whatsAppIcon: {
         backgroundColor: "green",
     },

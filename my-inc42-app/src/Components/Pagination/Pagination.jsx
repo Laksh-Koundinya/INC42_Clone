@@ -7,6 +7,8 @@ const useStyles = makeStyles((theme) => ({
   root: {
     '& > * + *': {
       marginTop: theme.spacing(2),
+      display:"flex",
+      justifyContent:"center"
     },
   },
 }));
@@ -17,8 +19,8 @@ export function PaginationRounded({page,handlePage,limit,data}) {
   const totalPages = Math.ceil( data.length/limit)
   return (
     <div className={classes.root}>
-      <Typography>Page: {page}</Typography>
-      <Pagination count={Number(5) } page={page} onChange={handlePage} />
+      {/* <Typography>Page: {page}</Typography> */}
+      <Pagination count={ totalPages } page={page} onChange={handlePage} />
     </div>
   );
 }
