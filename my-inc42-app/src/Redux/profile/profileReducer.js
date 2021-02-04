@@ -25,7 +25,8 @@ export const profileReducer = (state=initState, { type, payload }) =>{
                     ...state,
                     loading:false,
                     error: false,
-                    profileData:payload
+                    profileData:payload,
+                    message:"getting the profile details success"
                 }
             }
 
@@ -34,7 +35,7 @@ export const profileReducer = (state=initState, { type, payload }) =>{
                     ...state,
                     error: true,
                     loading: false,
-                    message:payload
+                    message:payload.message
                 }
             }
 

@@ -39,5 +39,5 @@ export const fetchUserDetails = (payload) => dispatch =>{
 
     axios(config)
      .then( res => dispatch( profileSuccess(res.data)))
-     .catch( res => dispatch( profileFailure(res.data.message)))
+     .catch( res => dispatch( profileFailure({"message":"error in getting profile details"})))
 }

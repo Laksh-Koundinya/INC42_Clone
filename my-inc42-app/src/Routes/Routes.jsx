@@ -20,6 +20,8 @@ export const Routes = () => {
 
       <Route exact path="/featuredNews" render={() => <FeaturedNews />} />
       <Route exact path="/allnews" render={() => <AllNews />} />
+      <Route exact path = "/my-account" render = { () => <UserAccount/> } />
+      
 
       <Route exact path="/news-details/:id" render={() => <DisplayNews />} />
       <Route exact path="/featured-news/:id" render ={() => <DisplayFeatureContent />} />
