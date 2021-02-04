@@ -35,28 +35,7 @@ export const reducer = ( state = initState, {type,payload} ) => {
             }
         }
 
-        case FILTER_NEWS_REQUEST:{
-            return{
-                loading:true
-                
-            }
-        }
-
-        case FILTER_NEWS_SUCCESS:{
-            return{
-                loading:false,
-                error:false,
-                newsData: payload,
-                results_found:payload[0].results_found
-            }
-        }case FILTER_NEWS_FAILURE:{
-            return{
-                loading:false,
-                error:true,
-                message: payload.message
-                
-            }
-        }
+        
         default:
             return state
     }

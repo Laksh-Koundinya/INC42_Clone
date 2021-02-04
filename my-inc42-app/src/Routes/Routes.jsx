@@ -15,7 +15,7 @@ export const Routes = () => {
             <Route exact path = "/allnews" render =  {()=> <AllNews /> } />
             <Route exact path="/news-details/:id" render={() => <DisplayNews />} />
             <Route exact path="/tags/:id" render={() => <FilterNews />} />
-            <Footer />
+            {/* <Footer /> */}
         </div>
     );
 };
