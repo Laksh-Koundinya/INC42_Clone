@@ -58,8 +58,6 @@ function RegistrationForm () {
       description: seniority 
     }
     dispatch(registrationUser(payload))
-    console.log(...payload)
-    history.goBack()
   }
 
     return (

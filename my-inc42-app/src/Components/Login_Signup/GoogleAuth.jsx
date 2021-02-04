@@ -13,7 +13,6 @@ const GoogleAuth = () => {
 
     const responseSuccess = (response) => {
         console.log(response)
-        history.push("/")
      }
 
     const responseGoogle = (response) => {
