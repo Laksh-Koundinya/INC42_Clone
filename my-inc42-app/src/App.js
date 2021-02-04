@@ -1,22 +1,15 @@
-import React ,{useEffect} from "react"
-import {useDispatch} from "react-redux"
+import React from "react"
 import './App.css';
-import LoginModal from "./Components/Login_Signup/LoginModal"
-import { HomePage } from './Components/HomePageStart/HomePage';
-import { getNewsData } from './Redux/actionCreators';
 import { Routes } from "./Routes/Routes";
 
 
 function App() {
 
-  const dispatch = useDispatch()
-
-  useEffect(() => {
-        
-    dispatch( getNewsData() )
-  }, [])
-
   return (
+<<<<<<< HEAD
+=======
+
+>>>>>>> a12552c3f263d413e216d21a1593c61b69fe5915
     <div className="App">
       <Routes />
     </div>
