@@ -1,4 +1,4 @@
-import React, { useState } from 'react';
+import React, { useState, useEffect } from 'react';
 import { makeStyles } from '@material-ui/core/styles';
 import Modal from '@material-ui/core/Modal';
 import Fade from '@material-ui/core/Fade';
@@ -73,7 +73,17 @@ export default function LoginModal() {
   const classes = useStyles();
   const [open, setOpen] = React.useState(false);
   const [show,setShow ] = useState(false)
-
+  const isAuth = useSelector(state => state.login.isAuth)
+  const isRegister = useSelector(state => state.register.isRegister)
+  
+  useEffect(() => {
+    if(isAuth) {
+      setOpen(false)
+    }
+    if(isRegister) {
+      setShow(false)
+    }
+  }, [isAuth,isRegister])
   const handleOpen = () => {
     setOpen(true);
   };
@@ -90,7 +100,7 @@ export default function LoginModal() {
   return (
     <div>
       <Button className={classes.buttonStyle} color="inherit" onClick={handleOpen} >
-                LOGIN
+                {isAuth ? "MY ACCOUNT" : "LOGIN"}
               </Button>
       <Modal
         className={classes.modal}
@@ -128,7 +138,7 @@ export default function LoginModal() {
             <Divider variant="middle" className={classes.divider} />
             <div>
 
-              {show ? <RegistrationForm /> : <LoginForm  />}
+              {show ? <RegistrationForm /> : <LoginForm handleOpen={handleOpen} />}
 
                 <Link href="#" variant="body2" color="secondary" onClick={handleRegistration}>
                         {show ? "I HAVE AN ACCOUNT" : "I DONT HAVE AN ACCOUNT"}

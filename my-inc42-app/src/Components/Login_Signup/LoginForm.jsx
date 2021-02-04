@@ -33,7 +33,7 @@ const useStyles = makeStyles((theme) => ({
     
   
   }));
-function LoginForm() {
+function LoginForm({handleOpen}) {
 
   const classes = useStyles();
   const [email,setEmail] = useState("")
@@ -47,10 +47,6 @@ function LoginForm() {
   
     dispatch(loginUserData({email,password}))
     console.log({email,password})
-    console.log(history)
-    if(isAuth) {
-        history.goBack()
-    }
   }
     return (
         <div>
