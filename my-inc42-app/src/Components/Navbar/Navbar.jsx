@@ -47,7 +47,7 @@ const Navbar = () => {
         position="static"
         elevation={0}
         className={classes.root}
-        style={{ backgroundColor: "#df2b33" }}
+        style={{ backgroundColor: "#df2b33", }}
       >
         <Box display="flex" justifyContent="space-evenly" m={1} p={1}>
           <Box>
@@ -80,9 +80,9 @@ const Navbar = () => {
           </Box>
         </Box>
       </AppBar>
+      <Bar />
 
       {/* Component for Navbar Tabs */}
-      <Bar />
     </div>
   );
 };

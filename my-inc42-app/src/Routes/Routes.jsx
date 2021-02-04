@@ -8,6 +8,7 @@ import { HomePage } from "../Components/HomePageStart/HomePage";
 import {AllNews} from "../Components/OnlyNews/AllNews"
 import { FeaturedNews } from "../Components/FeaturedNews/FeaturedNews";
 import { DisplayFeatureContent } from "../Components/FeaturedNews/DisplayFeaturedNews";
+import SubmitPost from "../Components/GuestPost/SubmitPost";
 
 export const Routes = () => {
   return (
@@ -19,7 +20,7 @@ export const Routes = () => {
       <Route exact path="/news-details/:id" render={() => <DisplayNews />} />
       <Route exact path="/featured-news/:id" render ={() => <DisplayFeatureContent />} />
       <Route exact path="/tags/:id" render={() => <FilterNews />} />
-     
+      <Route exact path="/submitPost" render={() => <SubmitPost />} /> 
       <Footer />
     </div>
   );

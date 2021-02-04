@@ -8,9 +8,11 @@ import {
   bindHover,
   bindMenu,
 } from "material-ui-popup-state/hooks";
+import { Link, useHistory } from "react-router-dom";
 
 const MenuPopupState = ({ label, data }) => {
   const popupState = usePopupState({ variant: "popover", popupId: "demoMenu" });
+  const history = useHistory()
   return (
     <React.Fragment>
       <Typography variant="button" {...bindHover(popupState)}>
@@ -25,7 +27,7 @@ const MenuPopupState = ({ label, data }) => {
         {data &&
           data.map((item) => (
             <MenuItem onClick={popupState.close} key={item}>
-              {item}
+             <Link to="/submitPost">{item}</Link> 
             </MenuItem>
           ))}
       </Menu>
