@@ -58,7 +58,6 @@ const Navbar = () => {
           </Box>
           <Box display="flex" justifyContent="space-evenly">
             <Box>
-              
               <LoginModal />
             </Box>
             <Box>
