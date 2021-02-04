@@ -30,7 +30,7 @@ export const loginUserData = ({ email, password }) => (dispatch) => {
     }
   })
     .then((res) => {
-      dispatch(loginSuccess(res.data));
+      dispatch(loginSuccess({ token:res.data.token, username:email}));
       console.log(res);
     })
     .catch((err) => {

@@ -5,7 +5,9 @@ import { LOGIN_FAILURE, LOGIN_REQUEST, LOGIN_SUCCESS } from "./actionType"
     isAuth:false,
     isLoading:false,
     isError:false,
-    data:[]
+    data:[],
+    token:"",
+    username:""
 }
 
 
@@ -21,7 +23,8 @@ const reducer = (state = initState,{type,payload}) => {
                 ...state,
                 isLoading: false,
                 isAuth: true,
-                data: payload
+                token:payload.token,
+                username:payload.username
             };
         case LOGIN_FAILURE:
             return {

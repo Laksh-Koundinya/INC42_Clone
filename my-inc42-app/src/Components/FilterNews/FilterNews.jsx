@@ -42,18 +42,18 @@ export const FilterNews = () => {
     };
     useEffect(() => {
         console.log(id, "labellls");
-        dispatch(filterNews(id, page, limit, start));
+        dispatch(filterNews(id));
         setStart((page - 1) * limit);
-    }, [page, limit, start]);
+    }, []);
 
+    const totalPages = Math.ceil( data && data.length /limit)
 
     return (
         <>
             <div className={styles.filterNewsCards}>
                 {data
                     ?.filter(
-                        (_, index) =>
-                            index >= (page - 1) * limit && index < page * limit
+                        (_, index) =>  index >= (page - 1) * limit && index < (page * limit)
                     )
                     .map((item) => {
                         return (
@@ -69,8 +69,9 @@ export const FilterNews = () => {
                 <div className={styles.filterNewsCards}>
                     {
                         <PaginationRounded
-                            handlePage={handlePageChange}
+                            handlePageChange ={handlePageChange}
                             page={page}
+                            total = {totalPages}
                             limit={limit}
                             data={data}
                         />
