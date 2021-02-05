@@ -120,6 +120,7 @@ export default function SearchModal() {
 
   const handleClose = () => {
     setOpen(false);
+    setShowContent(false);
   };
 
   return (
@@ -201,7 +202,7 @@ export default function SearchModal() {
             />
           )}
         </Box>
-        <SearchBottom />
+        {data && <SearchBottom data={data} />}
       </Dialog>
     </div>
   );

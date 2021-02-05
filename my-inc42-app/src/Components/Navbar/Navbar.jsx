@@ -58,13 +58,13 @@ const Navbar = () => {
           </Box>
           <Box display="flex" justifyContent="space-evenly">
             <Box>
-              
               <LoginModal />
             </Box>
             <Box>
               <Button className={classes.buttonStyle} color="inherit">
                 BECOME A MEMBER
               </Button>
+              
             </Box>
             <Box>
               <FacebookIcon className={classes.iconStyle} />
