@@ -14,6 +14,7 @@ import CancelIcon from "@material-ui/icons/Cancel";
 import SearchCard from "./SearchModalComponent/SearchCard";
 import SearchBottom from "./SearchModalComponent/SearchBottom";
 import Pagination from "@material-ui/lab/Pagination";
+import { useHistory } from "react-router-dom";
 
 const useStyles = makeStyles((theme) => ({
   search: {
@@ -80,6 +81,7 @@ const useStyles = makeStyles((theme) => ({
 const Transition = React.forwardRef(function Transition(props, ref) {
   const [checked, setChecked] = React.useState(false);
 
+
   return (
     <>
       <Zoom in={checked} ref={ref} {...props} />
@@ -96,6 +98,7 @@ export default function SearchModal() {
   const url = `https://mock-server-anusha.herokuapp.com/news?q=${query}`;
   const [loading, error, data] = useFetch(url);
   console.log(loading, error, data, "data");
+  const history = useHistory()
   const [page, setPage] = useState(1);
   const limit = 6;
   const totalcount = Math.ceil(data && data.length / limit);
@@ -122,6 +125,16 @@ export default function SearchModal() {
     setOpen(false);
     setShowContent(false);
   };
+  const goToDisplayNews = (id,data) =>{
+    const location = {
+        pathName: `/news-details/${id}`,
+        state:{
+            data:data
+        }
+    }
+    console.log(location,"loc")
+    history.push( location.pathName )
+  }
 
   return (
     <div>
@@ -184,6 +197,8 @@ export default function SearchModal() {
               )
               .map((item) => (
                 <SearchCard
+                data = {item}
+                goToDisplayNews = {  goToDisplayNews }
                   img={item.image}
                   author={item.author}
                   title={item.title}

@@ -1,4 +1,4 @@
-import { FILTER_NEWS_FAILURE, FILTER_NEWS_REQUEST, FILTER_NEWS_SUCCESS, GET_NEWS_FAILURE, GET_NEWS_REQUEST, GET_NEWS_SUCCESS } from "./actionTypes";
+import {  GET_NEWS_FAILURE, GET_NEWS_REQUEST, GET_NEWS_SUCCESS } from "./actionTypes";
 
 
 const initState = {
@@ -35,6 +35,7 @@ export const reducer = ( state = initState, {type,payload} ) => {
             }
         }
 
+        
         
         default:
             return state
