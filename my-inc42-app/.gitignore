@@ -2,11 +2,11 @@
 
 # dependencies
 /node_modules
-.eslintcache
+/.eslintcache
 /.pnp
 .pnp.js
 # cache
-.eslintcache
+/.eslintcache
 .cache
 
 # testing

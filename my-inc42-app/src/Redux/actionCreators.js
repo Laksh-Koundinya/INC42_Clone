@@ -1,4 +1,4 @@
-import { GET_NEWS_REQUEST, GET_NEWS_SUCCESS ,GET_NEWS_FAILURE, FILTER_NEWS_SUCCESS, FILTER_NEWS_REQUEST} from "./actionTypes";
+import { GET_NEWS_REQUEST, GET_NEWS_SUCCESS ,GET_NEWS_FAILURE } from "./actionTypes";
 import axios from "axios"
 
 export const getNewsRequest = () =>{
@@ -34,4 +34,5 @@ export const getNewsData = () =>(dispatch) =>{
      .then( res => dispatch( getNewsSuccess( res.data ) ) )
      .catch( err => dispatch( getNewsFailure( {"message":"getting data failed"} ) ) )
 }
+
 
