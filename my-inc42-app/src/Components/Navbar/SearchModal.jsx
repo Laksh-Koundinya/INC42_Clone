@@ -123,6 +123,7 @@ export default function SearchModal() {
 
   const handleClose = () => {
     setOpen(false);
+    setShowContent(false);
   };
   const goToDisplayNews = (id,data) =>{
     const location = {
@@ -216,7 +217,7 @@ export default function SearchModal() {
             />
           )}
         </Box>
-        <SearchBottom />
+        {data && <SearchBottom data={data} />}
       </Dialog>
     </div>
   );

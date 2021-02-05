@@ -6,7 +6,7 @@ import Typography from "@material-ui/core/Typography";
 const useStyles = makeStyles({
   root: {
     width: "300px",
-    height: "auto",
+    height: "150px",
     wordWrap: "break-word",
     margin: "10px",
     padding: "10px",
@@ -22,22 +22,27 @@ const useStyles = makeStyles({
   content: {
     fontWeight: "700",
     fontSize: "15px",
+    overflow: "hidden",
+    textOverflow: "ellipsis",
   },
   foot: {
     color: "grey",
   },
 });
 
-const SearchBottomInfoCard = () => {
+const SearchBottomInfoCard = ({ label, item }) => {
   const classes = useStyles();
+
   return (
     <Box className={classes.root}>
-      <Typography className={classes.head}>NEWS</Typography>
+      <Typography className={classes.head}>{label}</Typography>
       <Typography className={classes.content} variant="button">
-        ContentContentContentContentContentContentContentContentContentContent
+        {item?.title}
       </Typography>
       <br />
-      <span className={classes.foot}>By Author - date - Time to read</span>
+      <span className={classes.foot}>
+        {item?.author} - {item?.published_at} - {item?.time_taken_read}
+      </span>
     </Box>
   );
 };

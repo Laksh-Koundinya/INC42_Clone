@@ -5,6 +5,7 @@ import { Box, Typography, Divider } from "@material-ui/core";
 
 const useStyles = makeStyles({
   root: {
+    marginTop: "20px",
     display: "flex",
     justifyContent: "center",
     padding: "10px",
@@ -19,41 +20,42 @@ const useStyles = makeStyles({
   subroot: {},
 });
 
-const SearchBottom = () => {
+const SearchBottom = ({ data }) => {
   const classes = useStyles();
+  console.log(data[0])
   return (
     <Box className={classes.root}>
       <Box className={classes.subroot}>
         <Typography className={classes.head} variant="h5">
           Trending On Inc42
         </Typography>
-        <SearchBottomInfoCard />
+        <SearchBottomInfoCard label="NEWS" item={data[0]} />
         <Divider className={classes.divider} />
-        <SearchBottomInfoCard />
+        <SearchBottomInfoCard label="NEWS" item={data[1]} />
         <Divider className={classes.divider} />
-        <SearchBottomInfoCard />
+        <SearchBottomInfoCard label="NEWS" item={data[2]} />
       </Box>
       <Divider orientation="vertical" flexItem />
       <Box className={classes.subroot}>
         <Typography className={classes.head} variant="h5">
           Inc42 Plus Member Exclusive
         </Typography>
-        <SearchBottomInfoCard />
+        <SearchBottomInfoCard label="FEATURES" item={data[3]} />
         <Divider className={classes.divider} />
-        <SearchBottomInfoCard />
+        <SearchBottomInfoCard label="FEATURES" item={data[4]} />
         <Divider className={classes.divider} />
-        <SearchBottomInfoCard />
+        <SearchBottomInfoCard label="FEATURES" item={data[5]} />
       </Box>
       <Divider orientation="vertical" flexItem />
       <Box className={classes.subroot}>
         <Typography className={classes.head} variant="h5">
           Inc42 Shots
         </Typography>
-        <SearchBottomInfoCard />
+        <SearchBottomInfoCard label="INC42 SHOTS" item={data[6]} />
         <Divider className={classes.divider} />
-        <SearchBottomInfoCard />
+        <SearchBottomInfoCard label="INC42 SHOTS" item={data[7]} />
         <Divider className={classes.divider} />
-        <SearchBottomInfoCard />
+        <SearchBottomInfoCard label="INC42 SHOTS" item={data[8]} />
       </Box>
     </Box>
   );

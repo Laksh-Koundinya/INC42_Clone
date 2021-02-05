@@ -9,8 +9,8 @@ import TwitterIcon from "@material-ui/icons/Twitter";
 import LinkedInIcon from "@material-ui/icons/LinkedIn";
 import MoreHorizIcon from "@material-ui/icons/MoreHoriz";
 import LoginModal from "../Login_Signup/LoginModal";
-import {useSelector} from "react-redux";
-import {useHistory,Link} from "react-router-dom"
+import { useSelector } from "react-redux";
+import { useHistory, Link } from "react-router-dom";
 
 const useStyles = makeStyles((theme) => ({
   root: {
@@ -42,22 +42,22 @@ const useStyles = makeStyles((theme) => ({
 
 const Navbar = () => {
   const classes = useStyles();
-  const history = useHistory()
-  const isAuth = useSelector(state => state.login.isAuth)
+  const history = useHistory();
+  const isAuth = useSelector((state) => state.login.isAuth);
 
   const goToAccountPage = () => {
-    history.push("/my-account")
-  }
+    history.push("/my-account");
+  };
   return (
     <div>
       <AppBar
         position="static"
         elevation={0}
         className={classes.root}
-        style={{ backgroundColor: "#df2b33", }}
+        style={{ backgroundColor: "#df2b33" }}
       >
         <Box display="flex" justifyContent="space-evenly" m={1} p={1}>
-          <Link to ="/">
+          <Link to="/">
             <Box>
               <img
                 alt="Logo"
@@ -67,13 +67,17 @@ const Navbar = () => {
           </Link>
           <Box display="flex" justifyContent="space-evenly">
             <Box>
-
-            
-            {isAuth ? <Button  className={classes.buttonStyle} color="inherit" onClick = {goToAccountPage}> MY ACCOUNT </Button> : <LoginModal />}
-              
-
-              
-
+              {isAuth ? (
+                <Button
+                  className={classes.buttonStyle}
+                  color="inherit"
+                  onClick={goToAccountPage}
+                >
+                  MY ACCOUNT{" "}
+                </Button>
+              ) : (
+                <LoginModal />
+              )}
             </Box>
             <Box>
               <Button className={classes.buttonStyle} color="inherit">
