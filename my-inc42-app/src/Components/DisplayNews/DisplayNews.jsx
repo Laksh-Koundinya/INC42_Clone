@@ -18,6 +18,7 @@ export const DisplayNews = () => {
         const findNewsItem = data?.find( (item) => (item.id).toString() === id.toString() )    
         setReqNews(findNewsItem)  
     }, [])
+    console.log(reqNews)
 
     return (
         <div>
