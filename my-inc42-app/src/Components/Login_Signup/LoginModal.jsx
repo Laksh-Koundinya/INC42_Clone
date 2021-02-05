@@ -76,6 +76,7 @@ export default function LoginModal() {
   const [google,setGoogle] = useState(false)
   const isAuth = useSelector(state => state.login.isAuth)
   const isRegister = useSelector(state => state.register.isRegister)
+  const profile = useSelector(state => state.profile.profileData.user)
   
   useEffect(() => {
     if(isAuth) {
@@ -131,7 +132,7 @@ export default function LoginModal() {
             </div>
             <div className={classes.button}>
             <Button variant="contained" color="primary" >
-                <GoogleAuth setOpen= {setOpen} setGoogle={setGoogle}/> 
+                <GoogleAuth setOpen= {setOpen} setGoogle={setGoogle} profile={profile} /> 
                 
             </Button>
             </div>

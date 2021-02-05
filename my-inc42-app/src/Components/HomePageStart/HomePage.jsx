@@ -20,7 +20,6 @@ export const HomePage = () => {
     const loading = useSelector((state) => state.data.loading);
 
 
-
     const dispatch = useDispatch();
     const history = useHistory()
 

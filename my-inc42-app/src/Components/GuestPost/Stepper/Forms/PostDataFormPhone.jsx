@@ -7,7 +7,6 @@ const useStyles = makeStyles((theme) => ({
   root: {
     "& > *": {
       margin: theme.spacing(1),
-      width: "25ch",
       justifyContent:"start"
     }
   },
@@ -58,7 +57,7 @@ const PostDataFormPhone =  ({
         </Button>
         <Button
           variant="contained"
-          // disabled={!isValid}
+          disabled={!isValid}
           color="primary"
           onClick={handleNext}
         >
