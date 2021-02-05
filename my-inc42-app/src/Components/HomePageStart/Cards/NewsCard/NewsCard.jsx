@@ -70,7 +70,8 @@ const useStyles = makeStyles((theme) => ({
 
 export const NewsCard = ({ data }) => {
     const classes = useStyles();
-   // console.log(data.image,"imageee")
+   console.log(data.image,"imageee")
+   
 
     return (
         <Card className={classes.root}>
