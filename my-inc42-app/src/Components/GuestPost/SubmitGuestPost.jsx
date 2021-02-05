@@ -4,6 +4,7 @@ import { makeStyles } from '@material-ui/core/styles';
 import { Box, Button, Typography } from '@material-ui/core';
 import PostPageStart from './Stepper/PostPageStart';
 import StepForm from './Stepper/StepperForm';
+import StaticLeftBoxData from './StaticLeftBoxData';
 
 const useStyles = makeStyles((theme) => ({
   root: {
@@ -19,8 +20,8 @@ const useStyles = makeStyles((theme) => ({
   },
   bottom :{
     backgroundColor:"black",
-    height:"600px",
-    width:"120%",
+    height:"auto",
+    width:"100%",
     background:"black",
     display:"block",
     display:"flex",
@@ -37,25 +38,28 @@ const useStyles = makeStyles((theme) => ({
     background:"black"
   },
   left:{
-    minWidth:"50%",
-    flexBasis:"50%",
-    background:"green"
+    maxWidth:"60%",
+    flexBasis:"60%",
+    textAlign:'start',
+    color:"white",
+    padding:"4%"
   },
   right:{
     display:"flex",
+    flexBasis:"30%",
     // background:"white",
     flexDirection:"column",
     justifyContent:"center",
     alignItems:"center",
-    // marginLeft:"2%",
-    marginRight:"2%",
-    flexWrap:"wrap"
+    padding:"8%"
   },
   buttonBox:{
     backgroundColor:'#212121',
-    width:"140%",
-    padding:"5%",
-    marginTop:"5%"
+    width:"100%",
+    padding:"5% 10% 5% 10%"
+  },
+  start:{
+    marginLeft:"35%"
   }
 }));
 
@@ -78,12 +82,14 @@ function SubmitPost() {
         </Container>
         </div>
         <Container className={classes.bottom}>
-          <Box className={classes.left}></Box>
+          <Box className={classes.left}>
+            <StaticLeftBoxData />
+          </Box>
           <Box className={classes.right}>
             {flag ? <>
               <PostPageStart />
             <Box component="div" className={classes.buttonBox}>
-            <Button variant="contained" color="secondary" onClick={handleFlag}>
+            <Button variant="contained" color="secondary" onClick={handleFlag} className={classes.start}>
               Start
             </Button>
             </Box>

@@ -11,7 +11,7 @@ import { UserAccount } from "../Components/UserAccountPage/UserAccount";
 import { PrivateRoutes } from "./PrivateRoutes";
 import { FeaturedNews } from "../Components/FeaturedNews/FeaturedNews";
 import { DisplayFeatureContent } from "../Components/FeaturedNews/DisplayFeaturedNews";
-import SubmitGuestPost from "../Components/GuestPost/SubmitGuestPost";
+import SubmitPost from "../Components/GuestPost/SubmitGuestPost";
 
 export const Routes = () => {
 
