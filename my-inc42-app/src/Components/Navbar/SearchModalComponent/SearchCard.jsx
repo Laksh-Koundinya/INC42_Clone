@@ -24,11 +24,11 @@ const useStyles = makeStyles({
   },
 });
 
-const SearchCard = ({ img, title, author, date }) => {
+const SearchCard = ({ img, title, author, date,goToDisplayNews,data }) => {
   const classes = useStyles();
   return (
     <>
-      <Box className={classes.root}>
+      <Box className={classes.root} onClick = { () => goToDisplayNews(data.id, data)}>
         <Box>
           <img className={classes.img} src={img} alt="imageCard" />
         </Box>
