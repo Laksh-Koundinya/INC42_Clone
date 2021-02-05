@@ -16,7 +16,8 @@ const rootReducer = combineReducers(
          filterData:filterReducer,
          register:RegisterReducer,
          featurenews:featureNewsReducer,
-        postData:postDataReducer
+        postData:postDataReducer,
+        profile:profileReducer
         })
 
 

@@ -1,11 +1,12 @@
-import { PROFILE_FAILURE, PROFILE_REQUEST, PROFILE_SUCCESS } from "./actionTypes"
+import { GOOGLE_PROFILE_SUCCESS, PROFILE_FAILURE, PROFILE_REQUEST, PROFILE_SUCCESS } from "./actionTypes"
 
 
 let initState ={
     loading: null,
-    profileData: {},
+    profileData: {user:[]},
     error:null,
-    message:""
+    message:"",
+    googleAuth:false
 
 }
 
@@ -38,6 +39,7 @@ export const profileReducer = (state=initState, { type, payload }) =>{
                 }
             }
 
+           
             default:
                 return state;
         }
