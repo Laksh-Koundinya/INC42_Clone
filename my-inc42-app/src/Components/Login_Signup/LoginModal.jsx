@@ -73,6 +73,7 @@ export default function LoginModal() {
   const classes = useStyles();
   const [open, setOpen] = React.useState(false);
   const [show,setShow ] = useState(false)
+  const [google,setGoogle] = useState(false)
   const isAuth = useSelector(state => state.login.isAuth)
   const isRegister = useSelector(state => state.register.isRegister)
   
@@ -84,6 +85,9 @@ export default function LoginModal() {
       setShow(false)
     }
   }, [isAuth,isRegister])
+
+ 
+
   const handleOpen = () => {
     setOpen(true);
   };
@@ -100,7 +104,11 @@ export default function LoginModal() {
   return (
     <div>
       <Button className={classes.buttonStyle} color="inherit" onClick={handleOpen} >
+
                 {isAuth ? <button>MY ACCOUNT</button> : "LOGIN"}
+
+                {isAuth || google ? "MY ACCOUNT" : "LOGIN"}
+
               </Button>
       <Modal
         className={classes.modal}
@@ -118,19 +126,19 @@ export default function LoginModal() {
             <Typography variant="h4" component="h1">{show ? "Sign Up" : "Login"}</Typography>
             <Typography variant="h6"  component="p" color="#f1f8e9" >{show ? "Sign up a new account using a social account": "Login into your account using a social account"}</Typography>
             <div className={classes.button}>
-            <Button variant="contained" color="primary">
+            <Button variant="contained" color="primary" onClick={() => alert("Sorry this feature is not available, We're currently working on it") }>
                 <FacebookIcon />
                 Facebook
             </Button>
             </div>
             <div className={classes.button}>
-            <Button variant="contained" color="primary">
-                <GoogleAuth /> 
+            <Button variant="contained" color="primary" >
+                <GoogleAuth setOpen= {setOpen} setGoogle={setGoogle}/> 
                 
             </Button>
             </div>
             <div className={classes.button}>
-            <Button variant="contained" color="primary">
+            <Button variant="contained" color="primary" onClick={() => alert("Sorry this feature is not available, We're currently working on it") }>
                 <LinkedInIcon />
                 LinkedIn
             </Button>
@@ -140,7 +148,7 @@ export default function LoginModal() {
 
               {show ? <RegistrationForm /> : <LoginForm handleOpen={handleOpen} />}
 
-                <Link href="#" variant="body2" color="secondary" onClick={handleRegistration}>
+                <Link variant="body2" color="secondary" onClick={handleRegistration}>
                         {show ? "I HAVE AN ACCOUNT" : "I DONT HAVE AN ACCOUNT"}
                     </Link>
             </div>

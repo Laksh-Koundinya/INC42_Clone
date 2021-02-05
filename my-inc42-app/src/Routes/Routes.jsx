@@ -11,6 +11,7 @@ import { UserAccount } from "../Components/UserAccountPage/UserAccount";
 import { PrivateRoutes } from "./PrivateRoutes";
 import { FeaturedNews } from "../Components/FeaturedNews/FeaturedNews";
 import { DisplayFeatureContent } from "../Components/FeaturedNews/DisplayFeaturedNews";
+import SubmitPost from "../Components/GuestPost/SubmitPost";
 
 export const Routes = () => {
     return (
@@ -40,8 +41,10 @@ export const Routes = () => {
                 render={() => <DisplayFeatureContent />}
             />
             <Route exact path="/tags/:id" render={() => <FilterNews />} />
+            <Route exact path="/submitPost" render={() => <SubmitPost />} /> 
 
             <Footer />
         </div>
     );
+
 };

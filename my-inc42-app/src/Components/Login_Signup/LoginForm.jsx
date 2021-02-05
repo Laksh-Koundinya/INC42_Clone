@@ -54,6 +54,7 @@ function LoginForm({handleOpen}) {
             <TextField
                         className={classes.text}
                         fullWidth
+                        required
                         InputProps={{ disableUnderline: true ,style: {color: "white",marginLeft:"20px"}}}
                         label="EMAIL"
                         type="text"
@@ -65,6 +66,7 @@ function LoginForm({handleOpen}) {
                         InputProps={{ disableUnderline: true ,style: {color: "white",marginLeft:"20px"}}}
                         className={classes.text}
                         fullWidth
+                        required
                         value={password}
                         label="PASSWORD"
                         type="text"
@@ -84,7 +86,7 @@ function LoginForm({handleOpen}) {
                         </Grid>
                 
                         <Grid item xs>
-                        <Link href="#" variant="body2" color="secondary">
+                        <Link href="" variant="body2" color="secondary" onClick={() => alert("Sorry this feature is not available, We're currently working on it") }>
                             I FORGOT MY PASSWORD
                         </Link>
                         </Grid>

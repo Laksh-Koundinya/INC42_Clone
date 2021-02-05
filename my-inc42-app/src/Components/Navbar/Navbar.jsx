@@ -54,7 +54,7 @@ const Navbar = () => {
         position="static"
         elevation={0}
         className={classes.root}
-        style={{ backgroundColor: "#df2b33" }}
+        style={{ backgroundColor: "#df2b33", }}
       >
         <Box display="flex" justifyContent="space-evenly" m={1} p={1}>
           <Link to ="/">
@@ -67,9 +67,13 @@ const Navbar = () => {
           </Link>
           <Box display="flex" justifyContent="space-evenly">
             <Box>
+
             
             {isAuth ? <Button  className={classes.buttonStyle} color="inherit" onClick = {goToAccountPage}> MY ACCOUNT </Button> : <LoginModal />}
               
+
+              
+
             </Box>
             <Box>
               <Button className={classes.buttonStyle} color="inherit">
@@ -91,9 +95,9 @@ const Navbar = () => {
           </Box>
         </Box>
       </AppBar>
+      <Bar />
 
       {/* Component for Navbar Tabs */}
-      <Bar />
     </div>
   );
 };
