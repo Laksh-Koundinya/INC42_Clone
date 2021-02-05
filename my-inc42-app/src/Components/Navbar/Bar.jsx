@@ -4,6 +4,7 @@ import { makeStyles } from "@material-ui/core/styles";
 import Typography from "@material-ui/core/Typography";
 import HoverMenu from "./HoverMenu";
 import SearchModal from "./SearchModal";
+import { useHistory } from "react-router-dom";
 
 const popoverData = [
   {
@@ -66,10 +67,9 @@ const popoverData = [
 
 const useStyles = makeStyles((theme) => ({
   bar: {
-    marginTop: "-25px",
-    marginLeft: "25%",
-    paddingTop: "10px",
-    width: "50%",
+    margin:"-2% 12% 0% 12%",
+    padding:"1% 0.5% 0.5% 0.5%",
+    width: "70%",
     minHeight: "40px",
     display: "flex",
     flexDirection: "row",
@@ -79,17 +79,24 @@ const useStyles = makeStyles((theme) => ({
 
 const Bar = () => {
   const classes = useStyles();
+  const history = useHistory()
+  const gotoAllNews=()=>{
+    history.push("/allnews")
+  }
+  const gotoFeaturedNews=()=>{
+    history.push("/featuredNews")
+  }
 
   return (
     <>
-      <Paper className={classes.bar} elevation={3}>
+      <Paper className={classes.bar} elevation={3} position="fixed">
         <SearchModal />
         <HoverMenu label="INC42 PLUS" data={popoverData[0].data1} />
         <HoverMenu label="FOR THE MAKERS" data={popoverData[1].data2} />
-        <Typography variant="button" display="block">
+        <Typography variant="button" display="block" onClick = {gotoAllNews}>
           NEWS
         </Typography>
-        <Typography variant="button" display="block">
+        <Typography variant="button" display="block" onClick = {gotoFeaturedNews}>
           FEATURES
         </Typography>
         <HoverMenu label="INFOCUS" data={popoverData[2].data3} />

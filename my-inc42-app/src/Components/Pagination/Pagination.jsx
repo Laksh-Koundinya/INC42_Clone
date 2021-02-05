@@ -1,25 +1,33 @@
-import React from 'react';
-import { makeStyles } from '@material-ui/core/styles';
-import Pagination from '@material-ui/lab/Pagination';
+import React from "react";
+import { makeStyles } from "@material-ui/core/styles";
+import Typography from "@material-ui/core/Typography";
+import Pagination from "@material-ui/lab/Pagination";
+
 
 const useStyles = makeStyles((theme) => ({
-  root: {
-    '& > *': {
-      marginTop: theme.spacing(2),
+    root: {
+        "& > * + *": {
+            marginTop: theme.spacing(2),
+            display: "flex",
+            justifyContent: "center",
+        },
     },
-  },
 }));
 
-export default function PaginationRounded({current,total,handlePage}) {
-  const totalBtnCount = Math.ceil(current/total)
-  const classes = useStyles();
 
-  return (
-    <div className={classes.root}>
-   
-      <Pagination count={10} variant="outlined" shape="rounded" color="primary"
-      page = {page}
-      onClick = {()=>handlePage(page)} />
-    </div>
-  );
+
+export function PaginationRounded({ page, total, handlePageChange }) {
+    const classes = useStyles();
+
+    return (
+        <div className={classes.root}>
+            <Pagination 
+             color="secondary"
+             variant="outlined"
+             shape="rounded"
+             count={total} 
+             page={page} 
+             onChange={handlePageChange} />
+        </div>
+    );
 }

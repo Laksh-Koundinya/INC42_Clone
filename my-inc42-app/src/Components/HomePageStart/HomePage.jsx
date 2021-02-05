@@ -11,10 +11,15 @@ import { Tag } from "./Tag";
 import { Typography } from "@material-ui/core";
 import styles from "./HomePage.module.css";
 import { FeaturedStories } from "./FeaturedStories";
+import CircularProgress from '@material-ui/core/CircularProgress';
 
 
 export const HomePage = () => {
     const newsData = useSelector((state) => state.data.newsData);
+    const error = useSelector((state) => state.data.error);
+    const loading = useSelector((state) => state.data.loading);
+
+
 
     const dispatch = useDispatch();
     const history = useHistory()
@@ -47,7 +52,10 @@ export const HomePage = () => {
     return (
         <>
             <div className={styles.mainHeader}>
+            { loading && <div><CircularProgress disableShrink /></div> }
+                {error && <div>something went wrong</div>}
                 <div className={styles.mainTop}>
+                
                     <div className={styles.mainLeft}>
                         <div className={styles.leftCard}>
                             {newsData?.reverse().map((item, i) => {
@@ -69,7 +77,7 @@ export const HomePage = () => {
                         </div>
                     </div>
                     <div className={styles.rightCard}>
-                        <Typography variant="h4">Editors picks</Typography>
+                        <Typography variant="h4" style = {{ textAlign:"start"}}>Editors picks</Typography>
                         {newsData?.reverse().map((item, i) => {
                             if (i > 2 && i <= 7) {
                                 return <SmallCard data={item} key={item.id} goToDisplayNews = {  goToDisplayNews } />;
@@ -78,7 +86,7 @@ export const HomePage = () => {
                     </div>
                 </div>
                 <div style = {{height:"40px"}}></div>
-                <div className = {styles.tags}>
+               <div className = {styles.tags}>
                     {
                         ["Education","Technology","Health"]?.map((item,index) => {
                             return <Tag label = {item} key = {index} handleClick = { goToFilterPage} />
@@ -87,6 +95,8 @@ export const HomePage = () => {
                 </div>
                 <div style = {{height:"40px"}}></div>
                 <FeaturedStories data = {newsData} />
+                    {console.log(loading, error, "errorrr")}
+                
             </div>
         </>
     );

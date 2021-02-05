@@ -8,6 +8,9 @@ import FacebookIcon from "@material-ui/icons/Facebook";
 import TwitterIcon from "@material-ui/icons/Twitter";
 import LinkedInIcon from "@material-ui/icons/LinkedIn";
 import MoreHorizIcon from "@material-ui/icons/MoreHoriz";
+import LoginModal from "../Login_Signup/LoginModal";
+import {useSelector} from "react-redux";
+import {useHistory,Link} from "react-router-dom"
 
 const useStyles = makeStyles((theme) => ({
   root: {
@@ -39,27 +42,38 @@ const useStyles = makeStyles((theme) => ({
 
 const Navbar = () => {
   const classes = useStyles();
+  const history = useHistory()
+  const isAuth = useSelector(state => state.login.isAuth)
 
+  const goToAccountPage = () => {
+    history.push("/my-account")
+  }
   return (
     <div>
       <AppBar
         position="static"
         elevation={0}
         className={classes.root}
-        style={{ backgroundColor: "#df2b33" }}
+        style={{ backgroundColor: "#df2b33", }}
       >
         <Box display="flex" justifyContent="space-evenly" m={1} p={1}>
-          <Box>
-            <img
-              alt="Logo"
-              src="https://cdn.inc42.com/wp-content/uploads/2018/07/inc42-logo.svg"
-            />
-          </Box>
+          <Link to ="/">
+            <Box>
+              <img
+                alt="Logo"
+                src="https://cdn.inc42.com/wp-content/uploads/2018/07/inc42-logo.svg"
+              />
+            </Box>
+          </Link>
           <Box display="flex" justifyContent="space-evenly">
             <Box>
-              <Button className={classes.buttonStyle} color="inherit">
-                LOGIN
-              </Button>
+
+            
+            {isAuth ? <Button  className={classes.buttonStyle} color="inherit" onClick = {goToAccountPage}> MY ACCOUNT </Button> : <LoginModal />}
+              
+
+              
+
             </Box>
             <Box>
               <Button className={classes.buttonStyle} color="inherit">
@@ -81,9 +95,9 @@ const Navbar = () => {
           </Box>
         </Box>
       </AppBar>
+      <Bar />
 
       {/* Component for Navbar Tabs */}
-      <Bar />
     </div>
   );
 };

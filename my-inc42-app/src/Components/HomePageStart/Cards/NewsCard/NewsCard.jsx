@@ -18,7 +18,9 @@ const useStyles = makeStyles((theme) => ({
     root: {
         maxWidth: 800,
         backgroundColor: "white",
-        marginBottom:30
+        marginTop:30,
+        marginBottom:30,
+        margin: "auto"
     },
     media: {
         height: 0,
@@ -26,8 +28,11 @@ const useStyles = makeStyles((theme) => ({
     },
     category: {
         color: "crimson",
+        textAlign:"start"
     },
-    title: {},
+    title: {
+        textAlign:"start"
+    },
     whatsAppIcon: {
         backgroundColor: "green",
     },

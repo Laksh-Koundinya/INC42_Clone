@@ -3,24 +3,27 @@
 // XFRiSyXaO1IGgrZgqse-dMLP
 
 
-import React from 'react';
+import React, { useRef } from 'react';
 import {GoogleLogin} from 'react-google-login';
 import { useHistory } from "react-router-dom";
 
 
-const GoogleAuth = () => {
-    const history = useHistory()
+const GoogleAuth = ({setOpen,setGoogle}) => {
 
-    const responseSuccess = (response) => {
-        console.log(response)
-        history.push("/")
-     }
+  const history = useHistory()
+  const isAuth  = useRef()
+    
 
     const responseGoogle = (response) => {
     console.log(response);
     
     }
-
+    const responseSuccess = (response) => {
+        console.log(response.Es.sd)
+        history.push("/")
+        setOpen(false)
+        setGoogle(true)
+     }
 
     return(
         <GoogleLogin
