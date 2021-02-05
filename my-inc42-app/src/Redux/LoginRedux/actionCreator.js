@@ -1,5 +1,6 @@
-import {LOGIN_REQUEST, LOGIN_SUCCESS, LOGIN_FAILURE} from "./actionType"
+import {LOGIN_REQUEST, LOGIN_SUCCESS, LOGIN_FAILURE, USER_LOGOUT_SUCCESS} from "./actionType"
 import axios from "axios"
+import { fetchUserDetails } from "../profile/actionCreators";
 
 
 export const loginRequest = () => ({
@@ -38,4 +39,8 @@ export const loginUserData = ({ email, password }) => (dispatch) => {
     });
 };
 
-
+export const logoutUser= () => {
+  return{
+      type:USER_LOGOUT_SUCCESS
+  }
+}

@@ -26,10 +26,15 @@ function TabPanel(props) {
   }
 const AntTabs = withStyles({
     root: {
-        borderBottom: "1px solid grey",
+        // borderBottom: "2px solid white",
         borderTopRightRadius: "10px",
         borderTopLeftRadius: "10px",
     },
+    indicator: {
+        backgroundColor: "black",
+        border:"none"
+
+      }
 })(Tabs);
 
 const AntTab = withStyles((theme) => ({
@@ -47,7 +52,7 @@ const AntTab = withStyles((theme) => ({
             color: "white",
             backgroundColor: "black",
             borderTop: "4px solid red",
-            borderBottom: "white",
+            borderBottom: "none",
             fontWeight: theme.typography.fontWeightMedium,
         },
         // },
@@ -61,6 +66,7 @@ const AntTab = withStyles((theme) => ({
 const useStyles = makeStyles((theme) => ({
     root: {
         maxWidth: 700,
+        marginTop:"2em"
     },
     padding: {
         padding: theme.spacing(3),
@@ -97,7 +103,7 @@ export function CustomizedTabs({profileData, error,loading}) {
         console.log(newValue, "newvalu");
     };
 
-    const { username, mobile, email } = profileData;
+    const { name, mobile, email } = profileData;
 
 
     return (
@@ -122,6 +128,7 @@ export function CustomizedTabs({profileData, error,loading}) {
                     </div>
                 </TabPanel>
                 <TabPanel value={value} index={1} dir={theme.direction} >
+                    {loading && <h2>..loading pls wait</h2>}
                     { error && <h3>something went wrong in displaying profile details</h3>}
                     <form>
                         <label>User Name</label>
@@ -133,8 +140,8 @@ export function CustomizedTabs({profileData, error,loading}) {
                             name="username"
                             type="text"
                             autoFocus
-                            value={profileData.name}
-                            // onChange={(e)=>setFname(e.target.value)}
+                            value={name}
+                            disabled
                         />
                         <label>email</label>
                         <TextField
@@ -146,7 +153,7 @@ export function CustomizedTabs({profileData, error,loading}) {
                             type="text"
                             autoFocus
                             value={email}
-                            // onChange={(e)=>setFname(e.target.value)}
+                            disabled
                         />
                         <label>mobile</label>
                         <TextField
@@ -158,7 +165,8 @@ export function CustomizedTabs({profileData, error,loading}) {
                             type="text"
                             autoFocus
                             value={mobile}
-                            // onChange={(e)=>setFname(e.target.value)}
+                            disabled
+                           
                         />
                     </form>
                 </TabPanel>
@@ -175,3 +183,5 @@ export function CustomizedTabs({profileData, error,loading}) {
         </div>
     );
 }
+
+

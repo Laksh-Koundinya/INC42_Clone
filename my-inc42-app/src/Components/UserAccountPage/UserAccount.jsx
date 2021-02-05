@@ -1,48 +1,51 @@
 import React, { useEffect } from "react";
-import { useSelector } from "react-redux";
+import { useSelector, useDispatch } from "react-redux";
+
 import { fetchUserDetails } from "../../Redux/profile/actionCreators";
-import { useDispatch } from "react-redux";
+import { CustomizedTabs } from "./Tabs";
+import { logoutUser } from "../../Redux/LoginRedux/actionCreator";
+
 import { Box, Container, Paper } from "@material-ui/core";
 import { makeStyles } from "@material-ui/core/styles";
-import { CustomizedTabs } from "./Tabs";
 
 const useStyles = makeStyles((theme) => ({
-
     root: {
         maxWidth: 800,
-        minHeight:600
-        
+        minHeight: 600,
+        marginTop:"2em"
     },
     paper: {
         borderRadius: 25,
-        paddingLeft:theme.spacing(4),
-        paddingRight:theme.spacing(4),
-        paddingBottom:theme.spacing(4)
+        paddingLeft: theme.spacing(4),
+        paddingRight: theme.spacing(4),
+        paddingBottom: theme.spacing(4),
     },
-    title:{
-        fontSize:"2.5rem",
+    title: {
+        fontSize: "2.5rem",
         // position:"absolute"
     },
-    logoutIcon:{
-        height:12,
-        width:11,
+    logoutIcon: {
+        height: 12,
+        width: 11,
     },
-    logoutLabel:{
+    logoutLabel: {
         color: "#fe2d5b",
-        marginLeft:4
+        marginLeft: 4,
     },
-    header:{
-        display:"flex",
+    header: {
+        display: "flex",
     },
-    logoutRightSide:{
-        marginTop:"1.2rem",
-        marginRight: "0%"
-
+    logoutRightSide: {
+        marginTop: "1.2rem",
+        marginRight: "0%",
+        '&:hover':{
+            cursor:"pointer"
+        }
     },
-    flexgrow:{
-        display:"flex",
-        flex:1
-    }
+    flexgrow: {
+        display: "flex",
+        flex: 1,
+    },
 }));
 export const UserAccount = () => {
     const classes = useStyles();
@@ -61,44 +64,46 @@ export const UserAccount = () => {
         token,
     };
     useEffect(() => {
-        dispatch(fetchUserDetails(payload));
+       dispatch(fetchUserDetails(payload));
     }, []);
 
-    const logOut = () =>{
-        // dispatch( logOutUser() )
-    }
+    const logOut = () => {
+        dispatch(logoutUser());
+    };
 
-    console.log(profileData);
     return (
         <Container className={classes.root}>
-            {!isAuth && <h1>Please login to view your account information.</h1>}
+            
 
             <Paper variant="outlined" className={classes.paper}>
-                <heading className = {classes.header}>
-                    <Box className={classes.title}>
-                        My account
-                    </Box>
-                    <div className = {classes.flexgrow}></div>
-                    <Box  component = "div" className = {classes.logoutRightSide} onClick = {logOut}>
-                       <img className = {classes.logoutIcon} src="https://cdn-stage-inc42-ext.rt.gw/wp-content/uploads/2019/10/Logout-Icon.png" />
-                       <Box component = "span" className = {classes.logoutLabel}>Logout</Box>
+                <heading className={classes.header}>
+                    <Box className={classes.title}>My account</Box>
+                    <div className={classes.flexgrow}></div>
+                    <Box
+                        component="div"
+                        className={classes.logoutRightSide}
+                        onClick={logOut}
+                    >
+                        <img
+                            className={classes.logoutIcon}
+                            src="https://cdn-stage-inc42-ext.rt.gw/wp-content/uploads/2019/10/Logout-Icon.png"
+                        />
+                        <Box component="span" className={classes.logoutLabel}>
+                            Logout
+                        </Box>
                     </Box>
                 </heading>
+                {!isAuth && <h1>Please login to view your account information.</h1>}
 
                 {/* materail-ui tab */}
-                {
-                    isAuth && <CustomizedTabs profileData = {profileData} error = {error} loading = {loading} />
-                }
-                
+                {isAuth && (
+                    <CustomizedTabs
+                        profileData={profileData}
+                        error={error}
+                        loading={loading}
+                    />
+                )}
             </Paper>
         </Container>
     );
 };
-
-// color: rgb(254, 45, 91);
-// position: absolute;
-// font-size: 13px;
-// font-weight: normal;
-// top: 1.2rem;
-// right: 0px;
-// }

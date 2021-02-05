@@ -7,7 +7,7 @@ export const PrivateRoutes = ({MyComponent, ...rest}) => {
     return (
         <div>
             {
-                isAuth ? <Route {...rest} render = { () => <MyComponent/>} />: <Redirect to = "/" />
+                isAuth && <Route {...rest} render = { () => <MyComponent/>} />
             }
         </div>
     )

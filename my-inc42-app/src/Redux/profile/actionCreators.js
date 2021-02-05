@@ -9,7 +9,6 @@ export  const profileRequest = () =>{
 }
 
 export const profileSuccess = (data) =>{
-    console.log(data,"pro success")
     return{
         type:PROFILE_SUCCESS,
         payload: data

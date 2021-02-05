@@ -10,7 +10,6 @@ let initState ={
 }
 
 export const profileReducer = (state=initState, { type, payload }) =>{
-       console.log(payload, "profi pay",type)
 
         switch(type){
             case PROFILE_REQUEST:{
