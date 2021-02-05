@@ -105,8 +105,6 @@ export default function LoginModal() {
     <div>
       <Button className={classes.buttonStyle} color="inherit" onClick={handleOpen} >
 
-                {isAuth ? <button>MY ACCOUNT</button> : "LOGIN"}
-
                 {isAuth || google ? "MY ACCOUNT" : "LOGIN"}
 
               </Button>
