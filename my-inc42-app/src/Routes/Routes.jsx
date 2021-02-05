@@ -11,9 +11,10 @@ import { UserAccount } from "../Components/UserAccountPage/UserAccount";
 import { PrivateRoutes } from "./PrivateRoutes";
 import { FeaturedNews } from "../Components/FeaturedNews/FeaturedNews";
 import { DisplayFeatureContent } from "../Components/FeaturedNews/DisplayFeaturedNews";
-import SubmitPost from "../Components/GuestPost/SubmitPost";
+import SubmitGuestPost from "../Components/GuestPost/SubmitGuestPost";
 
 export const Routes = () => {
+
     return (
         <div>
             <Navbar />
