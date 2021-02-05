@@ -64,7 +64,6 @@ const Navbar = () => {
               <Button className={classes.buttonStyle} color="inherit">
                 BECOME A MEMBER
               </Button>
-              
             </Box>
             <Box>
               <FacebookIcon className={classes.iconStyle} />
