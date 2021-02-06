@@ -15,8 +15,11 @@ const useStyles = makeStyles((theme) => ({
 const Success = ({values}) => {
 
   const classes = useStyles();
-  console.log(values)
+  // console.log(values)
   const dispatch = useDispatch()
+  const date = new Date().toLocaleDateString()
+  const newValues = ({...values,published_at:date})
+  console.log(newValues)
 
   dispatch(postData(values))
 
