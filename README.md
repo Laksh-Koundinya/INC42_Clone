@@ -9,7 +9,7 @@ A clone of Inc42 web application
 
 ## Demo
 
-![Amazon Clone Demo](https://i.imgur.com/UKNKhoF.mp4)
+![Inc42 Clone Demo](https://github.com/Laksh-Koundinya/INC42_Clone/blob/main/my-inc42-app/public/Hnet-image.gif?raw=true)
 
 
 ## Technologies used
