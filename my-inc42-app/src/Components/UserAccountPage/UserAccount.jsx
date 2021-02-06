@@ -53,7 +53,7 @@ export const UserAccount = () => {
     const token = useSelector((state) => state.login.token);
     const username = useSelector((state) => state.login.username);
     const isAuth = useSelector((state) => state.login.isAuth);
-
+    const google = useSelector((state) => state.login.google);
     const error = useSelector((state) => state.profile.error);
     const loading = useSelector((state) => state.profile.loading);
 
@@ -79,7 +79,8 @@ export const UserAccount = () => {
                 <heading className={classes.header}>
                     <Box className={classes.title}>My account</Box>
                     <div className={classes.flexgrow}></div>
-                    <Box
+                    {
+                        google && (<Box
                         component="div"
                         className={classes.logoutRightSide}
                         onClick={logOut}
@@ -91,11 +92,23 @@ export const UserAccount = () => {
                         <Box component="span" className={classes.logoutLabel}>
                             Logout
                         </Box>
-                    </Box>
+                    </Box>)
+
+                    }
+                   
                 </heading>
-                {!isAuth && <h1>Please login to view your account information.</h1>}
+                { (!google) && <h1>Please login to view your account information.</h1>}
 
                 {/* materail-ui tab */}
+                {
+                    google && (
+                        <CustomizedTabs
+                            profileData={profileData.user}
+                            error={error}
+                            loading={loading}
+                        />
+                    )}
+
                 {isAuth && (
                     <CustomizedTabs
                         profileData={profileData}
