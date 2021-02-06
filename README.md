@@ -9,6 +9,7 @@ A clone of Inc42 web application
 
 ## Demo
 
+![Amazon Clone Demo](https://i.imgur.com/UKNKhoF.mp4)
 
 
 ## Technologies used
