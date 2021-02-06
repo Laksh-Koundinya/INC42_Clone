@@ -1,4 +1,4 @@
-import { PROFILE_FAILURE, PROFILE_REQUEST, PROFILE_SUCCESS } from "./actionTypes";
+import { PROFILE_FAILURE, PROFILE_REQUEST, PROFILE_SUCCESS, GET_GOOGLE_DETAILS } from "./actionTypes";
 import axios from "axios";
 
 

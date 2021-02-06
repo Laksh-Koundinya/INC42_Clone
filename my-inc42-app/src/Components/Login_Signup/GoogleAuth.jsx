@@ -5,13 +5,16 @@
 
 import React, { useRef } from 'react';
 import {GoogleLogin} from 'react-google-login';
-import { useSelector } from 'react-redux';
+import { useSelector,useDispatch } from 'react-redux';
 import { useHistory } from "react-router-dom";
+import { googleUserSuccess } from '../../Redux/LoginRedux/actionCreator';
+import { getGoogleDetails } from '../../Redux/profile/actionCreators';
 
 
 const GoogleAuth = ({setOpen,setGoogle,profile}) => {
 
   const history = useHistory()
+  const dispatch = useDispatch()
   const isAuth  = useRef()
     
 
@@ -24,7 +27,9 @@ const GoogleAuth = ({setOpen,setGoogle,profile}) => {
         history.push("/")
         setOpen(false)
         setGoogle(true)
+        
         profile.push(response.Es)
+        dispatch( googleUserSuccess())
      }
 
     return(

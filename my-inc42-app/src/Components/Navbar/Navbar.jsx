@@ -44,6 +44,8 @@ const Navbar = () => {
   const classes = useStyles();
   const history = useHistory();
   const isAuth = useSelector((state) => state.login.isAuth);
+  const google = useSelector((state) => state.login.google);
+
 
   const goToAccountPage = () => {
     history.push("/my-account");
@@ -67,7 +69,7 @@ const Navbar = () => {
           </Link>
           <Box display="flex" justifyContent="space-evenly">
             <Box>
-              {isAuth ? (
+              {isAuth || google ? (
                 <Button
                   className={classes.buttonStyle}
                   color="inherit"

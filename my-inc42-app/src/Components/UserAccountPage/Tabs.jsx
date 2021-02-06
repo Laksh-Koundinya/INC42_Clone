@@ -104,7 +104,7 @@ export function CustomizedTabs({profileData, error,loading}) {
     };
 
     const { name, mobile, email } = profileData;
-
+    console.log(profileData[0],"prookfsm", profileData[0].sd)
 
     return (
         <div className={classes.root}>
@@ -128,9 +128,33 @@ export function CustomizedTabs({profileData, error,loading}) {
                     </div>
                 </TabPanel>
                 <TabPanel value={value} index={1} dir={theme.direction} >
-                    {loading && <h2>..loading pls wait</h2>}
-                    { error && <h3>something went wrong in displaying profile details</h3>}
+                    {/* {loading && <h2>..loading pls wait</h2>}
+                    { error && <h3>something went wrong in displaying profile details</h3>} */}
                     <form>
+                        <label>First Name</label>
+                        <TextField
+                            className={classes.text}
+                            InputProps={{ disableUnderline: true ,style: {color: "white",marginLeft:"20px"}}}
+                            required
+                            fullWidth
+                            name="username"
+                            type="text"
+                            autoFocus
+                            value={profileData[0].bT}
+                            disabled
+                        />
+                        <label>Last Name</label>
+                        <TextField
+                            className={classes.text}
+                            InputProps={{ disableUnderline: true ,style: {color: "white",marginLeft:"20px"}}}
+                            required
+                            fullWidth
+                            name="username"
+                            type="text"
+                            autoFocus
+                            value={profileData[0].dR}
+                            disabled
+                        />
                         <label>User Name</label>
                         <TextField
                             className={classes.text}
@@ -140,7 +164,7 @@ export function CustomizedTabs({profileData, error,loading}) {
                             name="username"
                             type="text"
                             autoFocus
-                            value={name}
+                            value={profileData[0].sd}
                             disabled
                         />
                         <label>email</label>
@@ -152,22 +176,10 @@ export function CustomizedTabs({profileData, error,loading}) {
                             name="email"
                             type="text"
                             autoFocus
-                            value={email}
+                            value={profileData[0].kt}
                             disabled
                         />
-                        <label>mobile</label>
-                        <TextField
-                            className={classes.text}
-                            InputProps={{ disableUnderline: true ,style: {color: "white",marginLeft:"20px"}}}
-                            required
-                            fullWidth
-                            name="mobile"
-                            type="text"
-                            autoFocus
-                            value={mobile}
-                            disabled
-                           
-                        />
+                       
                     </form>
                 </TabPanel>
                 <TabPanel value={value} index={2} dir={theme.direction} className = {classes.tabsBottomBox}>

@@ -1,4 +1,4 @@
-import { LOGIN_FAILURE, LOGIN_REQUEST, LOGIN_SUCCESS, USER_LOGOUT_SUCCESS } from "./actionType";
+import { LOGIN_FAILURE, LOGIN_REQUEST, LOGIN_SUCCESS, USER_GOOGLE_SUCCESS, USER_LOGOUT_SUCCESS } from "./actionType";
 
 const initState = {
     isAuth: false,
@@ -7,6 +7,7 @@ const initState = {
     data: [],
     token: "",
     username: "",
+    google:false
 };
 
 const reducer = (state = initState, { type, payload }) => {
@@ -35,7 +36,15 @@ const reducer = (state = initState, { type, payload }) => {
                 loading: false,
                 error: false,
                 isAuth: false,
+                google:false
             };
+        }
+
+        case USER_GOOGLE_SUCCESS:{
+            return{
+                google:true,
+                data:payload
+            }
         }
         default:
             return state;
