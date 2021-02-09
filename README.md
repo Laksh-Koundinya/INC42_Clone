@@ -74,6 +74,6 @@ Run `npm start`
 * Can view different categories of articles
 * User can create account, login and can view account page
 * Google Authentication is enabled
-* User can post an Article
+* User can post data of an Article
 * Completely designed using material ui library
 
