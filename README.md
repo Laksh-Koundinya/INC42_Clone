@@ -1,5 +1,3 @@
-A clone of Inc42 web application
-
 # Inc42_Clone
 Inc42 is a leading Indian media and information platform, known for its end-to-end coverage of the Indian startup ecosystem providing a deep understanding of the startup economy through data-backed news and analysis.
 
