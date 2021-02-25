@@ -7,7 +7,7 @@ Inc42 is a leading Indian media and information platform, known for its end-to-e
 </h1>
 
 ## Demo
-
+Checkout the live demo <a href="https://inc42.netlify.app/">Inc42 demo</a>
 ![Inc42 Clone Demo](https://github.com/Laksh-Koundinya/INC42_Clone/blob/main/my-inc42-app/public/Hnet-image.gif?raw=true)
 
 
