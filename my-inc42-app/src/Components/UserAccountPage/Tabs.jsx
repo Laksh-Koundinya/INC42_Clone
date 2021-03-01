@@ -101,10 +101,8 @@ export function CustomizedTabs({profileData, error,loading}) {
     const handleChange = (event, newValue) => {
         setValue(newValue);
         console.log(newValue, "newvalu");
-    };
-
-    const { name, mobile, email } = profileData;
-    console.log(profileData[0],"prookfsm", profileData[0].sd)
+    }
+    console.log("prookfsm", profileData)
 
     return (
         <div className={classes.root}>
@@ -140,7 +138,7 @@ export function CustomizedTabs({profileData, error,loading}) {
                             name="username"
                             type="text"
                             autoFocus
-                            value={profileData[0].bT}
+                            value={profileData[0].givenName}
                             disabled
                         />
                         <label>Last Name</label>
@@ -152,7 +150,7 @@ export function CustomizedTabs({profileData, error,loading}) {
                             name="username"
                             type="text"
                             autoFocus
-                            value={profileData[0].dR}
+                            value={profileData[0].familyName}
                             disabled
                         />
                         <label>User Name</label>
@@ -164,7 +162,7 @@ export function CustomizedTabs({profileData, error,loading}) {
                             name="username"
                             type="text"
                             autoFocus
-                            value={profileData[0].sd}
+                            value={profileData[0].name}
                             disabled
                         />
                         <label>email</label>
@@ -176,7 +174,7 @@ export function CustomizedTabs({profileData, error,loading}) {
                             name="email"
                             type="text"
                             autoFocus
-                            value={profileData[0].kt}
+                            value={profileData[0].email}
                             disabled
                         />
                        
@@ -195,5 +193,3 @@ export function CustomizedTabs({profileData, error,loading}) {
         </div>
     );
 }
-
-
