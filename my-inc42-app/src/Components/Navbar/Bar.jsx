@@ -74,6 +74,7 @@ const useStyles = makeStyles((theme) => ({
     display: "flex",
     flexDirection: "row",
     justifyContent: "space-evenly",
+    cursor:"pointer"
   },
 }));
 

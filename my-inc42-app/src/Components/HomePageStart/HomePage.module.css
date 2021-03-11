@@ -11,24 +11,24 @@
 }
 .leftCard{
     width: 100%;
+    cursor: pointer;
 }
 .twoCards{
     display: flex;
     margin-right:20px;
     box-sizing: border-box;
     max-width: 100%;
-    
+    cursor: pointer;
 }
 .twoCards > div{
     margin-right: 4%;
-    margin-top:4%
-
+    margin-top:4%;
 }
 
 .rightCard{
     max-width: 35%;
     /* border: 1px solid red; */
-
+    cursor: pointer;
 }
 
 .rightCard > div {
@@ -60,4 +60,8 @@
 .tags > button {
     margin-right: 5px;
     
+}
+.mainHeader > .loading {
+    margin-left: 50%;
+    margin-top: 5%;
 }

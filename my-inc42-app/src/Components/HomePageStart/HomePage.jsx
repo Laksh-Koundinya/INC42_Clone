@@ -51,7 +51,7 @@ export const HomePage = () => {
     return (
         <>
             <div className={styles.mainHeader}>
-            { loading && <div><CircularProgress disableShrink /></div> }
+            { loading && <div className={styles.loading}><CircularProgress disableShrink /></div> }
                 {error && <div>something went wrong</div>}
                 <div className={styles.mainTop}>
                 
